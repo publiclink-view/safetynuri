@@ -36,7 +36,7 @@ function markActiveMenu() {
    ============================================================ */
 function initNav() {
     const siteHeader = document.querySelector('.site-header');
-    const hamburger = document.querySelector('.hamburger');
+    const hamburger = document.querySelector('.menu-toggle');
     const drawer = document.getElementById('drawer');
     const drawerClose = document.querySelector('.drawer-close');
 

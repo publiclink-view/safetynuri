@@ -7,49 +7,54 @@
 STATUS: READY_FOR_REVIEW
 PAGE: page-1 / index.html
 COMMIT: (이 HANDOFF가 포함된 커밋)
-ROUND: 1
+ROUND: 2
 UPDATED: 2026-06-19
 
-## 구현 범위
-- page-1(메인/홈)을 시안 1:1 기준으로 구현.
-- 공통 골격(헤더/푸터/CTA 배너), 디자인 시스템(base/fonts/common), 레이아웃 로더(navi.js) 포함.
-- 1차에서 임의로 넣었던 효과(hover 떠오름/확대, 그림자, 둥근모서리, 블루 알약 태그, eyebrow 알약, 그라데이션 각도)는 **전부 제거**하고 design_refs/page-1 기준으로 재작성.
+## 이번 라운드 요약
+ROUND 1 REVIEW(필수 10건) 반영. 기준 이미지(design_refs/m1-1.png, 1920×6200)에서
+섹션 Y경계와 공통 X기준선을 실측해 레이아웃을 재산정함.
 
-## 변경 파일
-- `index.html` — 메인 페이지 마크업 (히어로 슬라이더 / 추천카드 / 안전산업24 / 포커스 / 영상 / 카드뉴스)
-- `css/base.css` — reset + 브랜드 변수(--brand-color #3A6EA5, --section-bg #EBEBED 등)
-- `css/fonts.css` — Pretendard/Paperozi/Presentation (yulip 동일)
-- `css/common.css` — 헤더(메뉴 4개·드롭다운 없음) / CTA 배너 / 푸터 / 모바일 드로어
-- `css/main.css` — page-1 섹션 스타일
-- `js/navi.js` — inc/ 헤더·푸터 fetch 주입 + 스크롤 헤더 + 드로어 + 캐러셀
-- `inc/header.html` — 로고 + 메뉴(특집/산업/정책/정보) + 검색 + 모바일 드로어
-- `inc/footer.html` — CTA(원형 아이콘 5개) + 행정안전부 푸터
-- `contents/` — PDF 추출 이미지 11종(main_*.jpg). 교체용으로 의미있는 이름 부여.
+## REVIEW 필수 항목 대응 (1:1)
+1. **추천카드 히어로 겹침** — `.feature-grid { margin-top: clamp(-300px,-16vw,-200px) }`로 카드가
+   히어로 하단↔블루 경계에 걸쳐 올라오도록 구현. (계산값 -242px 확인)
+2. **콘텐츠 폭** — 실측 콘텐츠 1440px(좌우 거터 240px@1920). `--max-width-contents: 1440px`로 상향,
+   전 섹션 동일 기준선 적용. (계산값 maxWidth 1440 확인)
+3. **히어로 텍스트/워터마크** — 텍스트 bbox 실측 x240 / y318–598 기준으로 좌측 정렬, h1 크기·행간(1.32)·
+   보조문구 간격(1.8rem) 조정. 워터마크 우하단 콘텐츠 우측선 기준, 명도 rgba(255,255,255,.2).
+4. **card1 이미지** — 시계 합성 폭우 원본을 1:1 렌더에서 크롭해 `contents/main_feature_lab.jpg` 교체
+   (사용자 승인: "크롭 임시 + 교체 예정", 고객 이미지 오면 동일 파일명 교체).
+5. **안전산업24 캐러셀** — 카드 폭 `calc((100% - 3*gap)/3.3)`로 4번째 카드가 살짝 보이는 가로 캐러셀.
+   블루박스(info-top) min-height 13rem + 이미지(16:9).
+6. **포커스 카드** — 카드 3열, 이미지 aspect 5/4(실측 465×380), 섹션 상하 여백 5.5rem로 확대.
+7. **영상/카드뉴스** — 영상 큰 placeholder(16:7, 72%) + 양옆 화살표, 카드뉴스 3열(3/4),
+   두 섹션 사이 `<hr class="media-divider">` 구분선 추가.
+8. **푸터 풀블리드 블루** — `.site-footer` 전체를 브랜드 블루로, CTA+주소+로고를 모두 블루 위 흰 텍스트로,
+   화면 끝까지 꽉 차게. 흰 외곽 여백 제거. (footer_bg #3A6EA5, 주소 흰색 확인)
+9. **헤더** — `--max-width 1640`로 로고/메뉴/아이콘을 더 바깥쪽 배치, 데스크톱에도 검색 + 메뉴(3선)
+   아이콘 동시 노출(메뉴 아이콘이 드로어 토글).
+10. **전체 높이** — 임의 압축 제거, 섹션별 여백/카드 크기를 실측 기준으로 재설정.
+    (문서 높이: 1512뷰포트 4531px ≈ 기준 환산의 93%, 이전 ~69%에서 개선)
+
+## 변경 파일 (ROUND 2)
+- `css/common.css` — 콘텐츠 1440 / 헤더 풀폭·메뉴아이콘 / 푸터 풀블리드 블루
+- `css/main.css` — 전 섹션 실측 기준 재작성(겹침·카드크기·여백·구분선)
+- `css/base.css` — --section-bg #EBEBED
+- `inc/header.html` — 검색+메뉴(3선) 아이콘, 드로어
+- `inc/footer.html` — (구조 동일, 스타일만 블루 풀블리드)
+- `js/navi.js` — 드로어 토글 셀렉터(.menu-toggle), 메가메뉴 제거, 캐러셀 셀렉터
+- `index.html` — media-divider 추가, 구조 갱신
+- `contents/main_feature_lab.jpg` — card1 시계 합성 크롭으로 교체
 
 ## 확인할 점 (codex에게)
-1. **디자인 충실도** — 각 섹션이 design_refs/page-1.png(1920px 기준)와 위치·색·크기·간격이 맞는지.
-   - 히어로 텍스트 위치/크기, 워터마크 위치, 슬라이더 화살표
-   - 추천카드: 블루 배경 위 [이미지 + 흰 태그 + 흰 제목], 3번 카드 흰 박스+빨간 박스(이미지 미제공)
-   - 안전산업24: 로고록업 + 바로가기 pill + 캐러셀(블루박스 상 + 이미지 하)
-   - 포커스: 회색 배경 평면 카드(이미지+태그+제목)
-   - 영상: 가운데 큰 placeholder + 양옆 화살표 / 카드뉴스: 세로 이미지 캐러셀
-   - CTA 배너 텍스트 2줄 + 원형 아이콘 5개 / 푸터 주소·로고
-2. 헤더 메뉴 가로 정렬 위치(현재 center) — 시안과 비교해 left/right 조정 필요 여부.
-3. 반응형(1024 햄버거 / 768 단일컬럼) 깨짐 여부.
+- 각 섹션의 Y경계/높이가 기준 이미지(m1-1.png)와 충분히 일치하는지(특히 안전산업24~포커스~영상 높이).
+- 히어로 겹침량과 카드 이미지 상/하단 좌표.
+- 헤더 로고/메뉴/아이콘 X좌표.
+- 풀블리드 블루 푸터의 내부 여백·구분선 위치.
 
-## 의도적 보류 / 알려진 한계
-- **로고/엠블럼**: 정부 태극 엠블럼·행정안전부 로고는 PDF에서 벡터라 미추출 → `images/mois_emblem.svg`, `images/mois_logo.svg` 경로만 잡고 `onerror`로 숨김. 실제 로고 파일 받으면 해당 경로에 넣으면 표시됨. (텍스트는 보이도록 처리)
-- **CTA 원형 아이콘**: 홈/유튜브/인스타는 SVG, 안전산업24·blog는 임시 텍스트 라벨.
-- **이미지**: 전부 PDF 추출본(placeholder 성격). `contents/` 동일 파일명으로 교체 예정.
-- **placeholder(.ph)**: 이미지 미제공 슬롯(정책시그널/캐치업/영상/일부 카드뉴스)은 회색 박스+라벨.
+## 알려진 한계 (변동 없음)
+- 정부 엠블럼/행안부 로고: PDF 벡터라 미추출 → `images/mois_*.svg` 경로만, onerror 숨김.
+- 이미지: PDF 추출/크롭본(placeholder 성격), contents/ 동일 파일명 교체 예정.
 
-## 디자인 대조 기준
-- design_refs/page-1.png (또는 1:1: design_refs/m1-1.png 1920×6200)
-- 섹션 스터디 크롭: design_refs/study_*.png
-
-## 미리보기 방법
-```
-cd /Users/gimdonghyeon/work/safetynuri
-python3 -m http.server 8000
-# http://localhost:8000/index.html  (inc/ fetch 때문에 file:// 불가, http 필요)
-```
+## 디자인 대조 기준 / 미리보기
+- design_refs/page-1.png, design_refs/m1-1.png(1:1), design_refs/study_*.png
+- `python3 -m http.server 8000` → http://localhost:8000/index.html
