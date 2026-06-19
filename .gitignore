@@ -3,3 +3,6 @@ node_modules/
 dist/
 .env
 .venv/
+contents/_raw/
+design_refs/hi-p1-*.png
+design_refs/*.pdf.png

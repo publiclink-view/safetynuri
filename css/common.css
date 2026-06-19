@@ -1,0 +1,346 @@
+@charset "utf-8";
+
+:root {
+    --max-width: 1400px;
+    --max-width-contents: 1200px;
+    --nav-gap: 2.8rem;
+    --nav-bg-color: #fff;
+}
+
+/* ========== 헤더 ========== */
+.site-header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    width: 100%;
+    z-index: 1000;
+    background: #fff;
+    color: #111;
+    transition: background .25s ease, color .25s ease;
+}
+
+.site-header ul,
+.site-header li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header a {
+    color: inherit;
+    text-decoration: none;
+    word-break: keep-all;
+}
+
+.site-header a:hover {
+    text-decoration: none;
+}
+
+/* 다크히어로 페이지: 투명 헤더 + 흰 글씨 */
+body.dark-hero .site-header {
+    background: transparent;
+    color: #fff;
+}
+
+/* 스크롤 시: 솔리드 배경 */
+.site-header.scrolled {
+    background: var(--nav-bg-color) !important;
+    color: #111 !important;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .06);
+}
+
+/* 상단 바 */
+.nav-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.1rem 2.5rem;
+    min-height: 64px;
+    gap: 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 0 0 auto;
+}
+
+.logo a.logo-name {
+    font-family: var(--font-prese);
+    font-weight: 800;
+    font-size: 1.45rem;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+}
+
+.logo .issue-text {
+    font-size: 0.82rem;
+    font-weight: 500;
+    opacity: 0.85;
+    white-space: nowrap;
+}
+
+.main-nav {
+    flex: 1;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: var(--nav-gap);
+}
+
+.menu > li > a {
+    display: inline-block;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.2;
+    padding: .5rem 0;
+    white-space: nowrap;
+    transition: color .2s ease;
+}
+
+.menu > li > a:hover,
+.menu > li > a.active {
+    color: var(--brand-color);
+}
+
+/* 우측 아이콘 */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 0 0 auto;
+}
+
+.icon-btn {
+    width: 2.2rem;
+    height: 2.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+}
+
+.icon-btn svg {
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+.hamburger {
+    display: none;
+}
+
+.drawer {
+    display: none;
+}
+
+/* ========== CTA 배너 (파란 띠) ========== */
+.cta-band {
+    background: var(--brand-color);
+    color: #fff;
+    padding: 3.4rem 2.5rem;
+}
+
+.cta-wrap {
+    max-width: var(--max-width-contents);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.cta-text h2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.cta-text p {
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.cta-social {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.cta-social a {
+    width: 3rem;
+    height: 3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .18);
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.05;
+}
+
+.cta-social svg {
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+/* ========== 푸터 (행정안전부) ========== */
+.site-footer {
+    background: #fff;
+    border-top: 1px solid var(--line-color);
+    padding: 2.6rem 2.5rem;
+}
+
+.footer-wrap {
+    max-width: var(--max-width-contents);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--muted-color);
+}
+
+.footer-info p {
+    line-height: 1.7;
+}
+
+.footer-info .copyright {
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
+    opacity: 0.85;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-prese);
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--ink-color);
+    white-space: nowrap;
+}
+
+/* ========== 모바일 ========== */
+@media (max-width: 1024px) {
+    .main-nav {
+        display: none;
+    }
+
+    .nav-wrap {
+        padding: 0.9rem 1.2rem;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 1.8rem;
+        height: 1rem;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: currentColor;
+        transition: all 0.3s;
+    }
+
+    .drawer {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: min(360px, 84%);
+        height: 100vh;
+        background: #fff;
+        z-index: 2000;
+        transition: right 0.3s ease;
+        padding: 2rem 1.8rem;
+        color: #111;
+        overflow-y: auto;
+        box-shadow: -8px 0 30px rgba(0, 0, 0, .12);
+    }
+
+    .drawer.open {
+        right: 0;
+    }
+
+    .drawer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.8rem;
+    }
+
+    .drawer-title {
+        font-family: var(--font-prese);
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--brand-color);
+    }
+
+    .drawer-close {
+        font-size: 2rem;
+        line-height: 1;
+    }
+
+    .mnav-list li {
+        border-bottom: 1px solid var(--line-color);
+    }
+
+    .mnav-list a {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #333;
+        padding: 1rem 0.2rem;
+    }
+
+    .mnav-list a:hover {
+        color: var(--brand-color);
+    }
+
+    .drawer-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1999;
+    }
+
+    .cta-band {
+        padding: 2.4rem 1.2rem;
+    }
+
+    .cta-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.4rem;
+    }
+
+    .cta-text p {
+        font-size: 1.4rem;
+    }
+
+    .footer-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}

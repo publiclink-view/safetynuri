@@ -1,0 +1,563 @@
+@charset "utf-8";
+
+/* ===================================================================
+   메인(홈) — page-1  (시안 1:1)
+   =================================================================== */
+
+.container {
+    width: 100%;
+    max-width: var(--max-width-contents);
+    margin: 0 auto;
+    padding: 0 2.5rem;
+}
+
+/* 가운데 정렬 섹션 제목 */
+.center-head {
+    text-align: center;
+    margin-bottom: 2.6rem;
+}
+
+.center-head h2 {
+    font-family: var(--font-prese);
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--ink-color);
+}
+
+/* 공통 화살표 버튼 (캐러셀 / 슬라이더) */
+.arrow-btn {
+    width: 2.7rem;
+    height: 2.7rem;
+    border: 1px solid #cfd4da;
+    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #7a818a;
+}
+
+.arrow-btn svg {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+/* ========== 히어로 (슬라이더) ========== */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: #fff;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(6, 12, 20, .55) 0%, rgba(6, 12, 20, .15) 60%, rgba(6, 12, 20, 0) 100%);
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 4.5rem;
+}
+
+.hero h1 {
+    font-family: var(--font-prese);
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.25;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, .3);
+}
+
+.hero .hero-sub {
+    margin-top: 1.6rem;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-weight: 400;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+.hero-watermark {
+    position: absolute;
+    right: 4.5rem;
+    bottom: 12%;
+    z-index: 1;
+    font-family: var(--font-prese);
+    font-weight: 800;
+    font-size: clamp(1.6rem, 3.4vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, .22);
+    text-align: right;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* 좌우 슬라이더 화살표 (얇은 셰브론) */
+.hero-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    color: rgba(255, 255, 255, .8);
+    padding: 1rem;
+}
+
+.hero-arrow svg {
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.hero-arrow.prev {
+    left: 1.5rem;
+}
+
+.hero-arrow.next {
+    right: 1.5rem;
+}
+
+/* ========== 추천 카드 (블루 배경 위) ========== */
+.feature {
+    background: var(--brand-color);
+    padding: 3.2rem 0 3.6rem;
+}
+
+.feature-grid {
+    max-width: var(--max-width-contents);
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.feature-card {
+    display: block;
+    color: #fff;
+}
+
+.feature-thumb {
+    aspect-ratio: 16 / 11;
+    overflow: hidden;
+    background: #fff;
+}
+
+.feature-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 이미지 미제공(빨간 박스) 카드 */
+.feature-thumb.empty {
+    position: relative;
+    background: #fff;
+}
+
+.feature-thumb.empty::after {
+    content: "";
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 26%;
+    height: 16%;
+    background: #e8352e;
+}
+
+.feature-body {
+    padding: 1.1rem 0.2rem 0;
+}
+
+.feature-tag {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-bottom: 0.55rem;
+}
+
+.feature-body h3 {
+    font-family: var(--font-prese);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* ========== 안전산업24 ========== */
+.safety24 {
+    background: #fff;
+    padding: 4.5rem 0 4rem;
+}
+
+.safety24-head {
+    text-align: center;
+    margin-bottom: 2.4rem;
+}
+
+.safety24-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: var(--font-prese);
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--ink-color);
+    margin-bottom: 1rem;
+}
+
+.safety24-logo .emblem {
+    width: 2.4rem;
+    height: 2.4rem;
+    flex: 0 0 auto;
+}
+
+.safety24-head p {
+    color: #4a4f57;
+    font-size: 1.05rem;
+    margin-bottom: 1.4rem;
+}
+
+.btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink-color);
+    border: 1.5px solid #cfd4da;
+    border-radius: 2rem;
+    padding: 0.6rem 1.6rem;
+    transition: border-color .2s ease, color .2s ease;
+}
+
+.btn-pill:hover {
+    border-color: var(--brand-color);
+    color: var(--brand-color);
+}
+
+.btn-pill svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* 캐러셀 공통 */
+.carousel {
+    max-width: var(--max-width-contents);
+    margin: 0 auto;
+    padding: 0 2.5rem;
+}
+
+.carousel-nav {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 1.1rem;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track > * {
+    scroll-snap-align: start;
+    flex: 0 0 calc((100% - 4rem) / 3);
+}
+
+/* 안전산업24 카드: 블루 박스(상) + 이미지(하) */
+.info-card {
+    display: block;
+    color: inherit;
+}
+
+.info-top {
+    background: var(--brand-color);
+    color: #fff;
+    padding: 1.5rem 1.5rem 1.3rem;
+    min-height: 11rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-tag {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 1.1rem;
+}
+
+.info-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.info-top .info-arrow {
+    margin-top: auto;
+    align-self: flex-end;
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+.info-thumb {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #d9dde3;
+}
+
+.info-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ========== 포커스 / 캐치업 / 뉴스 (회색) ========== */
+.focus {
+    background: var(--section-bg);
+    padding: 4.5rem 0;
+}
+
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.focus-card {
+    display: block;
+    color: inherit;
+}
+
+.focus-thumb {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: #c9ccd1;
+    margin-bottom: 1rem;
+}
+
+.focus-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.focus-tag {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #4a4f57;
+    margin-bottom: 0.5rem;
+}
+
+.focus-card h3 {
+    font-family: var(--font-prese);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--ink-color);
+}
+
+.focus-card h3 .sub {
+    display: block;
+    font-family: var(--font-main);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #4a4f57;
+    margin-top: 0.2rem;
+}
+
+/* ========== 영상 / 카드뉴스 ========== */
+.media {
+    background: #fff;
+    padding: 4rem 0;
+}
+
+/* 영상: 가운데 큰 placeholder + 양옆 화살표 */
+.video-carousel {
+    max-width: var(--max-width-contents);
+    margin: 0 auto;
+    padding: 0 5rem;
+    position: relative;
+}
+
+.video-track {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.video-track::-webkit-scrollbar {
+    display: none;
+}
+
+.video-card {
+    scroll-snap-align: center;
+    flex: 0 0 70%;
+    aspect-ratio: 16 / 7;
+    background: #f0f1f3;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.video-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-carousel .arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+}
+
+.video-carousel .arrow-btn.prev {
+    left: 1rem;
+}
+
+.video-carousel .arrow-btn.next {
+    right: 1rem;
+}
+
+/* 카드뉴스: 세로 이미지 캐러셀 */
+.cardnews-carousel {
+    max-width: var(--max-width-contents);
+    margin: 0 auto;
+    padding: 0 5rem;
+    position: relative;
+}
+
+.cardnews-track {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.cardnews-track::-webkit-scrollbar {
+    display: none;
+}
+
+.cardnews-card {
+    scroll-snap-align: start;
+    flex: 0 0 calc((100% - 3rem) / 3);
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: #d9dde3;
+}
+
+.cardnews-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardnews-carousel .arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+}
+
+.cardnews-carousel .arrow-btn.prev {
+    left: 1rem;
+}
+
+.cardnews-carousel .arrow-btn.next {
+    right: 1rem;
+}
+
+/* ========== 반응형 ========== */
+@media (max-width: 1024px) {
+    .carousel-track > * {
+        flex-basis: calc((100% - 2rem) / 2);
+    }
+
+    .cardnews-card {
+        flex-basis: calc((100% - 1.5rem) / 2);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-inner {
+        padding: 0 1.5rem;
+    }
+
+    .hero-watermark {
+        right: 1.5rem;
+        bottom: 8%;
+    }
+
+    .hero-arrow.prev { left: 0.2rem; }
+    .hero-arrow.next { right: 0.2rem; }
+
+    .feature-grid,
+    .focus-grid {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+    }
+
+    .carousel-track > * {
+        flex-basis: 78%;
+    }
+
+    .cardnews-card {
+        flex-basis: 60%;
+    }
+
+    .video-card {
+        flex-basis: 88%;
+    }
+
+    .video-carousel,
+    .cardnews-carousel {
+        padding: 0 2.5rem;
+    }
+
+    .video-carousel .arrow-btn,
+    .cardnews-carousel .arrow-btn {
+        display: none;
+    }
+
+    .safety24,
+    .focus,
+    .media,
+    .feature {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+}
