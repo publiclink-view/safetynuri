@@ -301,15 +301,18 @@
 }
 
 .video-track {
+    --video-card-width: 56.25rem;
     display: flex;
     gap: 16.875rem;
+    padding-inline: calc((100% - var(--video-card-width)) / 2);
+    scroll-padding-inline: calc((100% - var(--video-card-width)) / 2);
     overflow: hidden;
     flex: 1;
 }
 
 .video-track a {
     display: block;
-    flex: 0 0 48.75rem;
+    flex: 0 0 var(--video-card-width);
     aspect-ratio: 16 / 9;
     border-radius: 1.75rem;
     background: #eee;
@@ -392,8 +395,8 @@
         gap: 1.875rem;
     }
 
-    .video-track a {
-        flex-basis: 38.75rem;
+    .video-track {
+        --video-card-width: 42.5rem;
     }
 
     .feature,.safety24,.focus,.media {
@@ -509,12 +512,9 @@
     }
 
     .video-track {
+        --video-card-width: 82vw;
         gap: 1.25rem;
         overflow-x: auto;
-    }
-
-    .video-track a {
-        flex-basis: 75vw;
     }
 
     .section-rule {

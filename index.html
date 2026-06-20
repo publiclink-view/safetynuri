@@ -1,91 +1,205 @@
 <!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="상시 기후위기에 대응하는 첨단 재난안전기술 - 안전누리 웹진 No.08">
-  <title>안전누리 | 재난안전산업 종합정보 웹진 No.08</title>
-  <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="안전누리 홈">
-      <strong>안전누리</strong><span>재난안전산업 종합정보 웹진</span><b>No. 08</b>
-    </a>
-    <nav class="main-nav" aria-label="주요 메뉴">
-      <a href="#feature">특집</a><a href="#safety24">산업</a><a href="#focus">정책</a><a href="#media">정보</a>
-    </nav>
-    <div class="header-tools"><button aria-label="검색" class="search-icon"></button><button aria-label="메뉴" class="menu-icon"><i></i><i></i><i></i></button></div>
-  </header>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="상시 기후위기에 대응하는 첨단 재난안전기술 - 안전누리 웹진 No.08"
+    >
+    <title>안전누리 | 재난안전산업 종합정보 웹진 No.08</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
 
-  <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-slide is-active" data-hero-slide aria-hidden="false">
-        <div class="hero-copy wrap">
-          <h1 id="hero-title">상시 기후위기에 대응하는<br>첨단 재난안전기술</h1>
-          <p>장기호우·복합재난 시대,<br>재난안전산업이 만드는 새로운 안전</p>
+  <body>
+    <header class="site-header" data-include="inc/header.html"></header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-slide is-active" data-hero-slide aria-hidden="false">
+          <div class="hero-copy wrap">
+            <h1 id="hero-title">상시 기후위기에 대응하는<br>첨단 재난안전기술</h1>
+            <p>장기호우·복합재난 시대,<br>재난안전산업이 만드는 새로운 안전</p>
+          </div>
         </div>
-      </div>
-      <div class="hero-slide" data-hero-slide aria-hidden="true">
-        <div class="hero-copy wrap">
-          <h2>상시 기후위기에 대응하는<br>첨단 재난안전기술1</h2>
-          <p>장기호우·복합재난 시대,<br>재난안전산업이 만드는 새로운 안전1</p>
+        <div class="hero-slide" data-hero-slide aria-hidden="true">
+          <div class="hero-copy wrap">
+            <h2>상시 기후위기에 대응하는<br>첨단 재난안전기술1</h2>
+            <p>장기호우·복합재난 시대,<br>재난안전산업이 만드는 새로운 안전1</p>
+          </div>
         </div>
-      </div>
-      <button class="edge-arrow edge-arrow--left" data-hero-direction="-1" type="button" aria-label="이전 특집">←</button>
-      <button class="edge-arrow edge-arrow--right" data-hero-direction="1" type="button" aria-label="다음 특집">→</button>
-      <p class="hero-watermark" aria-hidden="true">DISASTER SAFETY<br>TECHNOLOGY</p>
-    </section>
+        <button
+          class="edge-arrow edge-arrow--left"
+          data-hero-direction="-1"
+          type="button"
+          aria-label="이전 특집"
+        >
+          ←
+        </button>
+        <button
+          class="edge-arrow edge-arrow--right"
+          data-hero-direction="1"
+          type="button"
+          aria-label="다음 특집"
+        >
+          →
+        </button>
+        <p class="hero-watermark" aria-hidden="true">DISASTER SAFETY<br>TECHNOLOGY</p>
+      </section>
 
-    <section class="feature" id="feature" aria-label="이번 호 주요 콘텐츠">
-      <div class="feature-grid wrap">
-        <article class="feature-card"><a href="#"><img src="contents/main_feature_lab.jpg" alt="침수된 지하차도와 12시간 시계 그래픽"><strong>재난안전 실험실</strong><h2>“서울에 12시간<br>폭우가 내린다면?”</h2></a></article>
-        <article class="feature-card"><a href="#"><img src="contents/main_feature_solution.jpg" alt="호우로 붕괴된 해안 도로"><strong>재난안전 솔루션</strong><h2>장기·국지성 호우 대응 기술<br>기후위기 극복 제품·솔루션</h2></a></article>
-        <article class="feature-card feature-card--blank"><a href="#"><div class="feature-placeholder"><span>6월 16일</span></div><strong>전문가 대담</strong><h2>상시적 기후위기 시대,<br>재난안전산업의 미래</h2></a></article>
-      </div>
-    </section>
+      <section class="feature" id="feature" aria-label="이번 호 주요 콘텐츠">
+        <div class="feature-grid wrap">
+          <article class="feature-card">
+            <a href="#">
+              <img src="contents/main_feature_lab.jpg" alt="침수된 지하차도와 12시간 시계 그래픽">
+              <strong>재난안전 실험실</strong>
+              <h2>“서울에 12시간<br>폭우가 내린다면?”</h2>
+            </a>
+          </article>
 
-    <section class="safety24" id="safety24">
-      <div class="safety24-heading">
-        <div class="government-mark" aria-hidden="true"><i></i></div><h2>안전산업24</h2>
-        <p>재난안전기술 및 인증제품 정보를 한눈에 확인해보세요.</p>
-        <a href="#" class="pill-link">바로가기 ↗</a>
-      </div>
-      <div class="info-carousel">
-        <div class="small-controls"><button type="button" data-scroll="info" data-direction="-1" aria-label="이전">‹</button><button type="button" data-scroll="info" data-direction="1" aria-label="다음">›</button></div>
-        <div class="info-track" data-track="info">
-          <article class="info-card"><a href="#"><strong>정책 시그널</strong><h3>2026 국민안전산업 펀드 결성<br>주요 재난안전산업 진흥 정책들</h3><span>→</span><div class="empty-art"></div></a></article>
-          <article class="info-card"><a href="#"><strong>세이프티 INFO</strong><h3>재난안전산업이 나아갈 길,<br>통계로 본다</h3><span>→</span><img src="contents/main_safety_info.jpg" alt="재난안전산업 통계 인포그래픽"></a></article>
-          <article class="info-card"><a href="#"><strong>이 제품, 이 기술 1</strong><h3>최신<br>재난안전신기술</h3><span>→</span><img src="contents/main_safety_tech.jpg" alt="재난안전신기술 차량"></a></article>
-          <article class="info-card"><a href="#"><strong>이 제품, 이 기술 2</strong><h3>최신<br>재난안전인증제품</h3><span>→</span><img src="contents/main_safety_cert.jpg" alt="재난안전인증제품"></a></article>
+          <article class="feature-card">
+            <a href="#">
+              <img src="contents/main_feature_solution.jpg" alt="호우로 붕괴된 해안 도로">
+              <strong>재난안전 솔루션</strong>
+              <h2>장기·국지성 호우 대응 기술<br>기후위기 극복 제품·솔루션</h2>
+            </a>
+          </article>
+
+          <article class="feature-card feature-card--blank">
+            <a href="#">
+              <div class="feature-placeholder">
+                <span>6월 16일</span>
+              </div>
+              <strong>전문가 대담</strong>
+              <h2>상시적 기후위기 시대,<br>재난안전산업의 미래</h2>
+            </a>
+          </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="focus" id="focus">
-      <div class="focus-grid wrap">
-        <article><a href="#"><img src="contents/main_focus_company.jpg" alt="디아이엔지니어링 관계자"><strong>포커스, 이 기업</strong><h2>원형시스템비계로 보여준 안전 혁신<br>디아이엔지니어링</h2></a></article>
-        <article><a href="#"><div class="focus-placeholder"></div><strong>캐치업</strong><h2>국내 vs 해외<br>재난안전산업 정책 함께 보기</h2></a></article>
-        <article><a href="#"><img src="contents/main_news.jpg" alt="재난안전산업 시설 전경"><strong>재난안전산업 뉴스를 한눈에</strong><h2>우리 산업계 주요 뉴스와<br>지원 사업을 확인해요</h2></a></article>
-      </div>
-    </section>
+      <section class="safety24" id="safety24">
+        <div class="safety24-heading">
+          <div class="government-mark" aria-hidden="true">
+            <i></i>
+          </div>
+          <h2>안전산업24</h2>
+          <p>재난안전기술 및 인증제품 정보를 한눈에 확인해보세요.</p>
+          <a href="#" class="pill-link">바로가기 ↗</a>
+        </div>
+        <div class="info-carousel">
+          <div class="small-controls">
+            <button type="button" data-scroll="info" data-direction="-1" aria-label="이전">‹</button>
+            <button type="button" data-scroll="info" data-direction="1" aria-label="다음">›</button>
+          </div>
+          <div class="info-track" data-track="info">
+            <article class="info-card">
+              <a href="#">
+                <strong>정책 시그널</strong>
+                <h3>2026 국민안전산업 펀드 결성<br>주요 재난안전산업 진흥 정책들</h3>
+                <span>→</span>
+                <div class="empty-art"></div>
+              </a>
+            </article>
 
-    <section class="media" id="media">
-      <h2>영상 바로보기</h2>
-      <div class="video-row wrap"><button type="button" data-scroll="videos" data-direction="-1" aria-label="이전 영상">‹</button><div class="video-track" data-track="videos"><a href="#" aria-label="영상 1"></a><a href="#" aria-label="영상 2"></a><a href="#" aria-label="영상 3"></a></div><button type="button" data-scroll="videos" data-direction="1" aria-label="다음 영상">›</button></div>
-      <div class="section-rule wrap"></div>
-      <h2>카드뉴스 바로보기</h2>
-      <div class="cardnews-row wrap"><button type="button" data-scroll="cardnews" data-direction="-1" aria-label="이전 카드뉴스">‹</button><div class="cardnews-track" data-track="cardnews"><a href="#"><img src="contents/main_cardnews_1.jpg" alt="재난안전신기술 현장을 바꾸는 10가지 기술"></a><a href="#"><img src="contents/main_cardnews_2.jpg" alt="스마트 쉘터 소개"></a><a href="#"><img src="contents/main_cardnews_3.jpg" alt="수중펌프 보호기술 소개"></a><a href="#"><img src="contents/main_cardnews_1.jpg" alt="재난안전신기술 현장을 바꾸는 10가지 기술 다시보기"></a></div><button type="button" data-scroll="cardnews" data-direction="1" aria-label="다음 카드뉴스">›</button></div>
-    </section>
-  </main>
+            <article class="info-card">
+              <a href="#">
+                <strong>세이프티 INFO</strong>
+                <h3>재난안전산업이 나아갈 길,<br>통계로 본다</h3>
+                <span>→</span>
+                <img src="contents/main_safety_info.jpg" alt="재난안전산업 통계 인포그래픽">
+              </a>
+            </article>
 
-  <footer class="site-footer">
-    <div class="footer-top wrap"><p>재난안전산업 종합정보 웹진<br><strong>우리나라의 재난안전기술 소식을 만나보세요.</strong></p><div class="social-links" aria-label="관련 채널"><a href="#" aria-label="홈">⌂</a><a href="#" aria-label="안전산업24">24</a><a href="#" aria-label="유튜브">▶</a><a href="#" aria-label="인스타그램">◎</a><a href="#" aria-label="블로그">blog</a></div></div>
-    <div class="footer-bottom wrap"><p>30112 세종특별자치시 도움6로 42(어진동) | 행정안전부 콜센터 02-2100-3399 | mois.go.kr<br><small>© Ministry of the Interior and Safety. All rights reserved.</small></p><div class="mois-logo"><span class="government-mark"><i></i></span><strong>행정안전부</strong></div></div>
-  </footer>
-  <script src="js/main.js"></script>
-</body>
+            <article class="info-card">
+              <a href="#">
+                <strong>이 제품, 이 기술 1</strong>
+                <h3>최신<br>재난안전신기술</h3>
+                <span>→</span>
+                <img src="contents/main_safety_tech.jpg" alt="재난안전신기술 차량">
+              </a>
+            </article>
+
+            <article class="info-card">
+              <a href="#">
+                <strong>이 제품, 이 기술 2</strong>
+                <h3>최신<br>재난안전인증제품</h3>
+                <span>→</span>
+                <img src="contents/main_safety_cert.jpg" alt="재난안전인증제품">
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="focus" id="focus">
+        <div class="focus-grid wrap">
+          <article>
+            <a href="#">
+              <img src="contents/main_focus_company.jpg" alt="디아이엔지니어링 관계자">
+              <strong>포커스, 이 기업</strong>
+              <h2>원형시스템비계로 보여준 안전 혁신<br>디아이엔지니어링</h2>
+            </a>
+          </article>
+
+          <article>
+            <a href="#">
+              <div class="focus-placeholder"></div>
+              <strong>캐치업</strong>
+              <h2>국내 vs 해외<br>재난안전산업 정책 함께 보기</h2>
+            </a>
+          </article>
+
+          <article>
+            <a href="#">
+              <img src="contents/main_news.jpg" alt="재난안전산업 시설 전경">
+              <strong>재난안전산업 뉴스를 한눈에</strong>
+              <h2>우리 산업계 주요 뉴스와<br>지원 사업을 확인해요</h2>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="media" id="media">
+        <h2>영상 바로보기</h2>
+        <div class="video-row wrap">
+          <button type="button" data-scroll="videos" data-direction="-1" aria-label="이전 영상">‹</button>
+          <div class="video-track" data-track="videos">
+            <a href="#" aria-label="영상 1"></a>
+            <a href="#" aria-label="영상 2"></a>
+            <a href="#" aria-label="영상 3"></a>
+          </div>
+          <button type="button" data-scroll="videos" data-direction="1" aria-label="다음 영상">›</button>
+        </div>
+
+        <div class="section-rule wrap"></div>
+
+        <h2>카드뉴스 바로보기</h2>
+        <div class="cardnews-row wrap">
+          <button type="button" data-scroll="cardnews" data-direction="-1" aria-label="이전 카드뉴스">‹</button>
+          <div class="cardnews-track" data-track="cardnews">
+            <a href="#">
+              <img src="contents/main_cardnews_1.jpg" alt="재난안전신기술 현장을 바꾸는 10가지 기술">
+            </a>
+            <a href="#">
+              <img src="contents/main_cardnews_2.jpg" alt="스마트 쉘터 소개">
+            </a>
+            <a href="#">
+              <img src="contents/main_cardnews_3.jpg" alt="수중펌프 보호기술 소개">
+            </a>
+            <a href="#">
+              <img src="contents/main_cardnews_1.jpg" alt="재난안전신기술 현장을 바꾸는 10가지 기술 다시보기">
+            </a>
+          </div>
+          <button type="button" data-scroll="cardnews" data-direction="1" aria-label="다음 카드뉴스">›</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-include="inc/footer.html"></footer>
+    <script src="js/common.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
