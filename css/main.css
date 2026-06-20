@@ -4,7 +4,7 @@
 
 .hero {
     height: 65rem;
-    background: linear-gradient(90deg, rgba(0, 8, 14, .68), rgba(0, 20, 31, .14)), url("../images/main_hero.jpg") center 54% / cover no-repeat;
+    background: linear-gradient(90deg, rgba(0, 8, 14, .68), rgba(0, 20, 31, .14)), url("../contents/main_hero.jpg") center 54% / cover no-repeat;
     color: white;
     position: relative;
     overflow: hidden;
