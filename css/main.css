@@ -1,541 +1,587 @@
 @charset "utf-8";
 
-/* ===================================================================
-   메인(홈) — page-1  (design_refs/page-1 1:1, 기준폭 1920 / 콘텐츠 1440)
-   =================================================================== */
+/* ========== 히어로 ========== */
 
-.container {
-    width: 100%;
-    max-width: var(--max-width-contents);
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-.center-head {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.center-head h2 {
-    font-family: var(--font-prese);
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--ink-color);
-}
-
-/* 캐러셀 화살표 (사각 아웃라인) */
-.arrow-btn {
-    width: 2.9rem;
-    height: 2.9rem;
-    border: 1px solid #cfd4da;
-    background: #fff;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: #7a818a;
-}
-
-.arrow-btn svg {
-    width: 1.15rem;
-    height: 1.15rem;
-}
-
-/* ========== 히어로 (슬라이더) ========== */
 .hero {
+    height: 65rem;
+    background: linear-gradient(90deg, rgba(0, 8, 14, .68), rgba(0, 20, 31, .14)), url("../images/main_hero.jpg") center 54% / cover no-repeat;
+    color: white;
     position: relative;
-    height: clamp(620px, 48vw, 860px);
-    display: flex;
-    align-items: center;
     overflow: hidden;
-    color: #fff;
 }
 
-.hero-bg {
+.hero-slide {
     position: absolute;
     inset: 0;
-    z-index: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(1.5rem);
+    transition: opacity .45s ease, transform .45s ease, visibility .45s;
 }
 
-.hero-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.hero-slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
 }
 
-.hero-bg::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(6, 12, 20, .5) 0%, rgba(6, 12, 20, .12) 55%, rgba(6, 12, 20, 0) 100%);
+.hero-copy {
+    padding-top: 15.3125rem;
 }
 
-.hero-inner {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: var(--max-width-contents);
-    margin: 0 auto;
-    padding: 0 1.5rem;
+.hero h1,
+.hero h2 {
+    font-size: 4rem;
+    line-height: 1.48;
+    letter-spacing: -0.1875rem;
 }
 
-.hero h1 {
-    font-family: var(--font-prese);
-    font-size: clamp(2.2rem, 3.4vw, 3.3rem);
-    font-weight: 800;
-    line-height: 1.32;
-    text-shadow: 0 2px 16px rgba(0, 0, 0, .3);
+.hero h2 {
+    margin: 0;
 }
 
-.hero .hero-sub {
-    margin-top: 1.8rem;
-    font-size: clamp(1.05rem, 1.4vw, 1.35rem);
-    font-weight: 400;
-    line-height: 1.6;
-    opacity: 0.95;
+.hero-copy p {
+    font-size: 1.75rem;
+    line-height: 1.8;
+    font-weight: 700;
+    margin-top: 2.125rem;
 }
 
 .hero-watermark {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: var(--max-width-contents);
-    bottom: 11%;
-    z-index: 1;
-    padding: 0 1.5rem;
-    font-family: var(--font-prese);
-    font-weight: 800;
-    font-size: clamp(1.8rem, 3.2vw, 3.4rem);
-    line-height: 1.12;
-    letter-spacing: 0.02em;
-    color: rgba(255, 255, 255, .2);
-    text-align: right;
-    pointer-events: none;
-    user-select: none;
+    right: 4.375rem;
+    bottom: 0.125rem;
+    color: rgba(32, 154, 225, .36);
+    font-size: 6.25rem;
+    line-height: 1.35;
+    font-weight: 300;
+    letter-spacing: 0.25rem;
 }
 
-.hero-arrow {
+.edge-arrow {
     position: absolute;
+    z-index: 2;
     top: 50%;
-    transform: translateY(-50%);
-    z-index: 3;
-    color: rgba(255, 255, 255, .85);
-    padding: 1rem;
+    font-size: 3.375rem;
+    font-weight: 200;
+    color: white;
 }
 
-.hero-arrow svg {
-    width: 1.7rem;
-    height: 1.7rem;
+.edge-arrow--left {
+    left: 3.625rem;
 }
 
-.hero-arrow.prev { left: 1.8rem; }
-.hero-arrow.next { right: 1.8rem; }
+.edge-arrow--right {
+    right: 3.625rem;
+}
 
-/* ========== 추천 카드 (블루 배경 + 히어로 겹침) ========== */
+/* ========== 주요 콘텐츠 ========== */
+
 .feature {
-    background: var(--brand-color);
-    padding-bottom: 4rem;
+    height: 49.375rem;
+    background: var(--blue);
+    color: white;
 }
 
 .feature-grid {
-    max-width: var(--max-width-contents);
-    margin: 0 auto;
-    margin-top: clamp(-300px, -16vw, -200px);
-    position: relative;
-    z-index: 5;
-    padding: 0 1.5rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.6rem;
+    gap: 1.5rem;
+    transform: translateY(-8.75rem);
 }
 
-.feature-card {
-    display: block;
-    color: #fff;
-}
-
-.feature-thumb {
-    aspect-ratio: 9 / 10;
-    overflow: hidden;
-    background: #fff;
-}
-
-.feature-thumb img {
+.feature-card img,
+.feature-placeholder {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
 }
 
-.feature-thumb.empty {
-    position: relative;
+.feature-placeholder {
+    background: #fff;
+    display: grid;
+    place-items: center;
 }
 
-.feature-thumb.empty::after {
-    content: "";
-    position: absolute;
-    top: 36%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 24%;
-    height: 12%;
-    background: #e8352e;
+.feature-placeholder span {
+    background: red;
+    padding: 0.875rem 2.5rem;
 }
 
-.feature-body {
-    padding: 1.3rem 0.2rem 0;
-}
-
-.feature-tag {
+.feature-card strong {
     display: block;
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 0.7rem;
+    font-size: 1.375rem;
+    padding: 1.125rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .55);
 }
 
-.feature-body h3 {
-    font-family: var(--font-prese);
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.4;
+.feature-card h2 {
+    font-size: 1.6875rem;
+    line-height: 1.55;
+    font-weight: 400;
+    padding-top: 0.875rem;
 }
 
 /* ========== 안전산업24 ========== */
+
 .safety24 {
-    background: #fff;
-    padding: 5.5rem 0 5rem;
+    height: 68.75rem;
+    padding-top: 6.875rem;
+    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 85%, #d9dbde 100%);
+    border-bottom: 1px solid #d4d6d9;
+    overflow: hidden;
 }
 
-.safety24-head {
+.safety24-heading {
     text-align: center;
-    margin-bottom: 3rem;
 }
 
-.safety24-logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.7rem;
-    font-family: var(--font-prese);
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--ink-color);
-    margin-bottom: 1.1rem;
+.safety24-heading .government-mark {
+    width: 4.75rem;
+    height: 4.75rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.875rem;
 }
 
-.safety24-logo .emblem {
-    width: 2.6rem;
-    height: 2.6rem;
+.safety24-heading .government-mark i {
+    background: #fff;
+}
+
+.safety24-heading h2 {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 2.75rem;
+}
+
+.safety24-heading p {
+    font-size: 1.5625rem;
+    margin-top: 1.25rem;
+}
+
+.pill-link {
+    display: inline-block;
+    margin-top: 1.375rem;
+    border: 1px solid;
+    border-radius: 2.5rem;
+    padding: 0.6875rem 1.875rem;
+    font-size: 1.4375rem;
+}
+
+.info-carousel {
+    width: calc(100% - var(--content-offset));
+    margin-top: 3rem;
+    margin-left: var(--content-offset);
+}
+
+.small-controls {
+    display: flex;
+    gap: 1.375rem;
+    margin-bottom: 1.375rem;
+}
+
+.small-controls button,
+.video-row > button,
+.cardnews-row > button {
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 1px solid #9fa4aa;
+    color: #8c949c;
+    font-size: 2.25rem;
     flex: 0 0 auto;
 }
 
-.safety24-head p {
-    color: #4a4f57;
-    font-size: 1.1rem;
-    margin-bottom: 1.6rem;
-}
-
-.btn-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--ink-color);
-    border: 1.5px solid #cfd4da;
-    border-radius: 2rem;
-    padding: 0.7rem 1.8rem;
-    transition: border-color .2s ease, color .2s ease;
-}
-
-.btn-pill:hover {
-    border-color: var(--brand-color);
-    color: var(--brand-color);
-}
-
-.btn-pill svg {
-    width: 1rem;
-    height: 1rem;
-}
-
-/* 캐러셀 공통 */
-.carousel {
-    max-width: var(--max-width-contents);
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-.carousel-nav {
-    display: flex;
-    gap: 0.6rem;
-    margin-bottom: 1.4rem;
-}
-
-.carousel-track {
-    display: flex;
-    gap: 1.6rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.carousel-track::-webkit-scrollbar {
-    display: none;
-}
-
-/* 4번째 카드가 살짝 보이는 가로 캐러셀 (~3.3장) */
-.carousel-track > * {
-    scroll-snap-align: start;
-    flex: 0 0 calc((100% - 3 * 1.6rem) / 3.3);
+.info-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 29.0625rem;
+    gap: 1.5rem;
 }
 
 .info-card {
-    display: block;
-    color: inherit;
-}
-
-.info-top {
-    background: var(--brand-color);
+    height: 41.25rem;
+    background: var(--blue);
     color: #fff;
-    padding: 1.8rem 1.7rem 1.5rem;
-    min-height: 13rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.info-tag {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 1.2rem;
-}
-
-.info-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    line-height: 1.45;
-}
-
-.info-top .info-arrow {
-    margin-top: auto;
-    align-self: flex-end;
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-.info-thumb {
-    aspect-ratio: 16 / 9;
+    padding: 2.6875rem 1.4375rem 0;
     overflow: hidden;
-    background: #d9dde3;
 }
 
-.info-thumb img {
+.info-card a {
+    display: block;
+}
+
+.info-card strong {
+    font-size: 1.4375rem;
+}
+
+.info-card h3 {
+    font-size: 1.6875rem;
+    line-height: 1.55;
+    font-weight: 400;
+    margin-top: 1.375rem;
+    height: 5.625rem;
+}
+
+.info-card span {
+    font-size: 2.375rem;
+    display: block;
+    text-align: right;
+    height: 3.625rem;
+}
+
+.info-card img,
+.empty-art {
     width: 100%;
-    height: 100%;
+    height: 20.625rem;
     object-fit: cover;
+    background: #fff;
 }
 
-/* ========== 포커스 / 캐치업 / 뉴스 (회색) ========== */
+/* ========== 포커스 ========== */
+
 .focus {
-    background: var(--section-bg);
-    padding: 5.5rem 0;
+    height: 56.25rem;
+    background: var(--muted);
+    padding-top: 6.25rem;
 }
 
 .focus-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.6rem;
+    gap: 1.5rem;
 }
 
-.focus-card {
-    display: block;
-    color: inherit;
-}
-
-.focus-thumb {
-    aspect-ratio: 5 / 4;
-    overflow: hidden;
-    background: #c9ccd1;
-    margin-bottom: 1.2rem;
-}
-
-.focus-thumb img {
+.focus-grid img,
+.focus-placeholder {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
 }
 
-.focus-tag {
-    display: block;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #4a4f57;
-    margin-bottom: 0.6rem;
+.focus-placeholder {
+    background: #afb2b5;
 }
 
-.focus-card h3 {
-    font-family: var(--font-prese);
-    font-size: 1.35rem;
-    font-weight: 700;
-    line-height: 1.45;
-    color: var(--ink-color);
+.focus-grid strong {
+    display: block;
+    font-size: 1.375rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #44566c;
 }
 
-.focus-card h3 .sub {
-    display: block;
-    font-family: var(--font-main);
-    font-size: 1.1rem;
+.focus-grid h2 {
+    font-size: 1.6875rem;
+    line-height: 1.6;
     font-weight: 400;
-    color: #4a4f57;
-    margin-top: 0.25rem;
+    padding-top: 1.375rem;
 }
 
-/* ========== 영상 / 카드뉴스 ========== */
+/* ========== 미디어 ========== */
+
 .media {
-    background: #fff;
-    padding: 5.5rem 0;
+    height: 113.75rem;
+    padding-top: 6.5625rem;
+    overflow: hidden;
 }
 
-.media-divider {
-    max-width: var(--max-width-contents);
-    margin: 0 auto;
-    border: 0;
-    border-top: 1px solid var(--line-color);
+.media > h2 {
+    text-align: center;
+    font-size: 1.6875rem;
 }
 
-/* 영상: 가운데 큰 placeholder + 양옆 화살표 */
-.video-carousel,
-.cardnews-carousel {
-    max-width: var(--max-width-contents);
-    margin: 0 auto;
-    padding: 0 5.5rem;
-    position: relative;
+.video-row,
+.cardnews-row {
+    display: flex;
+    align-items: center;
+    gap: 6.5625rem;
 }
 
+.video-row {
+    margin-top: 5rem;
+}
+
+.video-track {
+    display: flex;
+    gap: 16.875rem;
+    overflow: hidden;
+    flex: 1;
+}
+
+.video-track a {
+    display: block;
+    flex: 0 0 48.75rem;
+    aspect-ratio: 16 / 9;
+    border-radius: 1.75rem;
+    background: #eee;
+}
+
+.section-rule {
+    border-top: 1px solid #555;
+    margin-top: 10.625rem;
+    padding-top: 5rem;
+}
+
+.section-rule + h2 {
+    margin-bottom: 4.375rem;
+}
+
+.cardnews-row {
+    gap: 3.75rem;
+}
+
+.cardnews-track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4.0625rem;
+    flex: 1;
+    overflow: hidden;
+}
+
+.cardnews-track img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+/* ========== 가로 캐러셀 ========== */
+
+.info-track,
 .video-track,
 .cardnews-track {
-    display: flex;
-    gap: 1.6rem;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    -ms-overflow-style: none;
     scrollbar-width: none;
+    scroll-snap-type: x mandatory;
 }
 
+.info-track::-webkit-scrollbar,
 .video-track::-webkit-scrollbar,
 .cardnews-track::-webkit-scrollbar {
     display: none;
 }
 
-.video-card {
-    scroll-snap-align: center;
-    flex: 0 0 72%;
-    aspect-ratio: 16 / 7;
-    background: #f0f1f3;
-    border-radius: 1.2rem;
-    overflow: hidden;
-}
-
-.video-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.cardnews-card {
+.info-card,
+.video-track > a,
+.cardnews-track > a {
     scroll-snap-align: start;
-    flex: 0 0 calc((100% - 2 * 1.6rem) / 3);
-    aspect-ratio: 3 / 4;
-    overflow: hidden;
-    background: #d9dde3;
 }
 
-.cardnews-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.cardnews-track {
+    display: flex;
 }
 
-.video-carousel .arrow-btn,
-.cardnews-carousel .arrow-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 3;
+.cardnews-track > a {
+    flex: 0 0 calc((100% - 8.125rem) / 3);
 }
 
-.video-carousel .arrow-btn.prev,
-.cardnews-carousel .arrow-btn.prev { left: 1rem; }
+[data-scroll]:disabled {
+    opacity: .32;
+    cursor: default;
+}
 
-.video-carousel .arrow-btn.next,
-.cardnews-carousel .arrow-btn.next { right: 1rem; }
-
-/* ========== 반응형 ========== */
-@media (max-width: 1024px) {
-    .feature-grid {
-        margin-top: -140px;
+@media (max-width: 1200px) {
+    .hero h1,.hero h2 {
+        font-size: 3.25rem;
     }
 
-    .carousel-track > * {
-        flex-basis: calc((100% - 1.6rem) / 2);
+    .info-track {
+        overflow-x: auto;
     }
 
-    .cardnews-card {
-        flex-basis: calc((100% - 1.6rem) / 2);
+    .video-row,.cardnews-row {
+        gap: 1.875rem;
     }
+
+    .video-track a {
+        flex-basis: 38.75rem;
+    }
+
+    .feature,.safety24,.focus,.media {
+        height: auto;
+        padding-bottom: 6.25rem;
+    }
+
+    .feature {
+        padding-bottom: 4.375rem;
+    }
+
+    .focus {
+        padding-top: 8.75rem;
+    }
+
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .hero {
-        height: clamp(480px, 86vw, 620px);
+        height: 42.5rem;
+        background-position: 58% center;
+    }
+
+    .hero-copy {
+        padding-top: 9.375rem;
+    }
+
+    .hero h1,.hero h2 {
+        font-size: 2.375rem;
+        line-height: 1.35;
+    }
+
+    .hero-copy p {
+        font-size: 1.1875rem;
     }
 
     .hero-watermark {
-        bottom: 7%;
+        font-size: 2.8125rem;
+        right: 1.25rem;
     }
 
-    .hero-arrow.prev { left: 0.3rem; }
-    .hero-arrow.next { right: 0.3rem; }
+    .edge-arrow {
+        font-size: 2.125rem;
+        top: auto;
+        bottom: 1.625rem;
+    }
 
-    .feature {
-        padding-bottom: 3rem;
+    .edge-arrow--left {
+        left: 1.25rem;
+    }
+
+    .edge-arrow--right {
+        right: 1.25rem;
     }
 
     .feature-grid {
         grid-template-columns: 1fr;
-        gap: 1.4rem;
-        margin-top: -90px;
+        transform: translateY(-2.1875rem);
+    }
+
+    .feature {
+        padding-bottom: 5rem;
+    }
+
+    .feature-card img,.feature-placeholder {
+        aspect-ratio: 16/9;
+    }
+
+    .safety24 {
+        padding-top: 4.6875rem;
+    }
+
+    .safety24-heading h2 {
+        font-size: 2.125rem;
+    }
+
+    .safety24-heading p {
+        font-size: 1.125rem;
+        padding: 0 1.25rem;
+    }
+
+    .info-track {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .info-card {
+        flex: 0 0 min(84vw,26.25rem);
+        height: 36.875rem;
+        scroll-snap-align: start;
+    }
+
+    .focus {
+        padding-top: 5.625rem;
     }
 
     .focus-grid {
         grid-template-columns: 1fr;
     }
 
-    .carousel-track > * {
-        flex-basis: 80%;
+    .media {
+        padding-top: 4.6875rem;
     }
 
-    .cardnews-card {
-        flex-basis: 62%;
+    .video-row,.cardnews-row {
+        gap: 0.875rem;
     }
 
-    .video-card {
-        flex-basis: 90%;
+    .video-row>button,.cardnews-row>button {
+        width: 2.625rem;
+        height: 2.625rem;
     }
 
-    .video-carousel,
-    .cardnews-carousel {
-        padding: 0 1.5rem;
+    .video-track {
+        gap: 1.25rem;
+        overflow-x: auto;
     }
 
-    .video-carousel .arrow-btn,
-    .cardnews-carousel .arrow-btn {
+    .video-track a {
+        flex-basis: 75vw;
+    }
+
+    .section-rule {
+        margin-top: 5.625rem;
+        padding-top: 4.375rem;
+    }
+
+    .cardnews-track {
+        display: flex;
+        gap: 1.25rem;
+        overflow-x: auto;
+    }
+
+    .cardnews-track a {
+        flex: 0 0 68vw;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .hero {
+        height: 36.875rem;
+    }
+
+    .hero-copy {
+        padding-top: 7.5rem;
+    }
+
+    .hero h1,.hero h2 {
+        font-size: 1.9375rem;
+    }
+
+    .hero-copy p {
+        font-size: 1.0625rem;
+    }
+
+    .feature-card strong {
+        font-size: 1.125rem;
+    }
+
+    .feature-card h2,.focus-grid h2 {
+        font-size: 1.3125rem;
+    }
+
+    .safety24-heading .government-mark {
+        width: 3.4375rem;
+        height: 3.4375rem;
+    }
+
+    .safety24-heading h2 {
+        font-size: 1.8125rem;
+    }
+
+    .info-card {
+        padding-top: 2rem;
+    }
+
+    .media>h2 {
+        font-size: 1.4375rem;
+    }
+
+    .video-row>button,.cardnews-row>button {
         display: none;
     }
 
-    .safety24,
-    .focus,
-    .media {
-        padding: 3.5rem 0;
+    .cardnews-row,.video-row {
+        width: calc(100% - 2rem);
     }
+
 }

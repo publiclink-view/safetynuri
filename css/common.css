@@ -1,367 +1,229 @@
 @charset "utf-8";
 
-:root {
-    --max-width: 1640px;
-    --max-width-contents: 1440px;
-    --nav-gap: 3rem;
-    --nav-bg-color: #fff;
-}
-
 /* ========== 헤더 ========== */
+
 .site-header {
-    position: fixed;
-    inset: 0 0 auto 0;
-    width: 100%;
-    z-index: 1000;
-    background: #fff;
-    color: #111;
-    transition: background .25s ease, color .25s ease;
-}
-
-.site-header ul,
-.site-header li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.site-header a {
-    color: inherit;
-    text-decoration: none;
-    word-break: keep-all;
-}
-
-.site-header a:hover {
-    text-decoration: none;
-}
-
-/* 다크히어로 페이지: 투명 헤더 + 흰 글씨 */
-body.dark-hero .site-header {
-    background: transparent;
-    color: #fff;
-}
-
-/* 스크롤 시: 솔리드 배경 */
-.site-header.scrolled {
-    background: var(--nav-bg-color) !important;
-    color: #111 !important;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, .06);
-}
-
-/* 상단 바 — 화면 폭에 맞춰 바깥쪽 배치 */
-.nav-wrap {
+    height: 4.375rem;
+    padding: 0 1.875rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 1.4rem 3rem;
-    min-height: 72px;
-    gap: 2rem;
+    gap: 1.875rem;
+    background: #000b12;
+    color: white;
+    position: relative;
+    z-index: 5;
 }
 
-.logo {
+.brand {
     display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    flex: 0 0 auto;
-}
-
-.logo a.logo-name {
-    font-family: var(--font-prese);
-    font-weight: 800;
-    font-size: 1.5rem;
-    letter-spacing: -0.02em;
+    align-items: baseline;
+    gap: 0.75rem;
     white-space: nowrap;
 }
 
-.logo .issue-text {
-    font-size: 0.85rem;
-    font-weight: 500;
-    opacity: 0.85;
-    white-space: nowrap;
+.brand strong {
+    font-size: 1.75rem;
+    letter-spacing: -0.125rem;
+}
+
+.brand span,
+.brand b {
+    font-size: 0.875rem;
+}
+
+.brand b {
+    font-size: 1.125rem;
 }
 
 .main-nav {
-    flex: 0 1 auto;
-    margin-left: auto;
-    margin-right: 2.5rem;
-}
-
-.menu {
     display: flex;
-    gap: var(--nav-gap);
+    gap: 5.9375rem;
+    margin: auto;
 }
 
-.menu > li > a {
-    display: inline-block;
-    font-size: 1.1rem;
-    font-weight: 600;
-    line-height: 1.2;
-    padding: .5rem 0;
-    white-space: nowrap;
-    transition: color .2s ease;
-}
-
-.menu > li > a:hover,
-.menu > li > a.active {
-    color: var(--brand-color);
-}
-
-/* 우측 아이콘 (검색 + 메뉴) */
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex: 0 0 auto;
-}
-
-.icon-btn {
-    width: 2.2rem;
-    height: 2.2rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: inherit;
-}
-
-.icon-btn svg {
-    width: 1.35rem;
-    height: 1.35rem;
-}
-
-/* 메뉴(3선) 아이콘 — 데스크톱에도 노출 */
-.menu-toggle {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 4px;
-    width: 1.8rem;
-    height: 2.2rem;
-}
-
-.menu-toggle span {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: currentColor;
-}
-
-/* ========== 푸터 (CTA + 주소 — 전체 풀블리드 블루) ========== */
-.site-footer {
-    background: var(--brand-color);
-    color: #fff;
-}
-
-.cta-band {
-    padding: 3.6rem 3rem 3rem;
-}
-
-.cta-wrap {
-    max-width: var(--max-width-contents);
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.cta-text h2 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.cta-text p {
-    font-size: 1.8rem;
+.main-nav a {
+    font-size: 1rem;
     font-weight: 700;
 }
 
-.cta-social {
+.header-tools {
     display: flex;
-    gap: 0.9rem;
+    align-items: center;
+    gap: 1.5rem;
 }
 
-.cta-social a {
-    width: 3.1rem;
-    height: 3.1rem;
-    display: inline-flex;
+.search-icon {
+    width: 1.375rem;
+    height: 1.375rem;
+    border: 3px solid #84929a;
+    border-radius: 50%;
+    position: relative;
+}
+
+.search-icon::after {
+    content: "";
+    position: absolute;
+    width: 0.5625rem;
+    height: 0.1875rem;
+    background: #84929a;
+    right: -0.4375rem;
+    bottom: -0.1875rem;
+    transform: rotate(45deg);
+}
+
+.menu-icon {
+    width: 1.75rem;
+    display: grid;
+    gap: 0.375rem;
+}
+
+.menu-icon i {
+    height: 0.1875rem;
+    background: #84929a;
+    border-radius: 0.125rem;
+}
+
+/* ========== 푸터 ========== */
+
+.site-footer {
+    height: 30rem;
+    background: var(--blue);
+    color: white;
+}
+
+.footer-top,
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+}
+
+.footer-top {
+    height: 18.75rem;
+}
+
+.footer-top p {
+    font-size: 1.6875rem;
+    line-height: 1.55;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.social-links a {
+    width: 4rem;
+    height: 4rem;
+    display: grid;
+    place-items: center;
     border-radius: 50%;
     background: rgba(255, 255, 255, .16);
-    color: #fff;
-    font-size: 0.62rem;
-    font-weight: 700;
-    text-align: center;
-    line-height: 1.05;
+    font-size: 1.125rem;
+    font-weight: 800;
 }
 
-.cta-social svg {
-    width: 1.45rem;
-    height: 1.45rem;
+.footer-bottom {
+    height: 11.25rem;
+    border-top: 1px solid rgba(255, 255, 255, .35);
+    font-size: 1.125rem;
 }
 
-/* 주소/로고 영역 — 같은 블루, 상단 구분선 */
-.footer-wrap {
-    max-width: var(--max-width-contents);
-    margin: 0 auto;
-    padding: 2.2rem 3rem 2.8rem;
-    border-top: 1px solid rgba(255, 255, 255, .2);
+.footer-bottom small {
+    display: block;
+    margin-top: 0.75rem;
+}
+
+.mois-logo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    font-size: 0.92rem;
-    color: rgba(255, 255, 255, .92);
+    gap: 0.875rem;
+    font-size: 1.6875rem;
 }
 
-/* 풀블리드 구분선 */
-.cta-band {
-    border-bottom: 1px solid rgba(255, 255, 255, .2);
+.government-mark {
+    width: 3.875rem;
+    height: 3.875rem;
+    border-radius: 50%;
+    background: conic-gradient(#e60032 0 40%, white 40% 55%, #002e58 55%);
+    padding: 0.4375rem;
 }
 
-.footer-wrap {
-    border-top: none;
+.government-mark i {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--blue);
 }
 
-.footer-info p {
-    line-height: 1.7;
-}
+@media (max-width: 900px) {
+    .site-header {
+        height: 4rem;
+        padding: 0 1rem;
+    }
 
-.footer-info .copyright {
-    margin-top: 0.5rem;
-    font-size: 0.84rem;
-    opacity: 0.8;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-prese);
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: #fff;
-    white-space: nowrap;
-}
-
-/* ========== 모바일 ========== */
-@media (max-width: 1024px) {
+    .brand span,
+    .brand b,
     .main-nav {
         display: none;
     }
 
-    .nav-wrap {
-        padding: 0.9rem 1.2rem;
+    .header-tools {
+        margin-left: auto;
     }
 
-    .menu-toggle {
-        height: 1.8rem;
+    .site-footer {
+        height: auto;
     }
 
-    .drawer {
+    .footer-top,
+    .footer-bottom {
+        height: auto;
+        padding-block: 3rem;
+        gap: 2.25rem;
+    }
+
+    .footer-top p {
+        font-size: 1.25rem;
+    }
+
+    .social-links {
+        gap: 0.5rem;
+    }
+
+    .social-links a {
+        width: 2.625rem;
+        height: 2.625rem;
+        font-size: 0.75rem;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        font-size: 0.8125rem;
+    }
+
+    .mois-logo {
+        font-size: 1.125rem;
+    }
+
+    .mois-logo .government-mark {
+        width: 2.625rem;
+        height: 2.625rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-top,
+    .footer-bottom {
         display: block;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: min(360px, 84%);
-        height: 100vh;
-        background: #fff;
-        z-index: 2000;
-        transition: right 0.3s ease;
-        padding: 2rem 1.8rem;
-        color: #111;
-        overflow-y: auto;
-        box-shadow: -8px 0 30px rgba(0, 0, 0, .12);
     }
 
-    .cta-band {
-        padding: 2.4rem 1.2rem;
+    .social-links {
+        margin-top: 1.875rem;
     }
 
-    .cta-wrap {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.4rem;
+    .mois-logo {
+        margin-top: 1.875rem;
     }
-
-    .cta-text p {
-        font-size: 1.45rem;
-    }
-
-    .footer-wrap {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-        padding: 2rem 1.2rem 2.4rem;
-    }
-}
-
-/* 드로어는 데스크톱/모바일 공통(메뉴 아이콘으로 열림) */
-.drawer {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: min(380px, 84%);
-    height: 100vh;
-    background: #fff;
-    z-index: 2000;
-    transition: right 0.3s ease;
-    padding: 2rem 1.8rem;
-    color: #111;
-    overflow-y: auto;
-    box-shadow: -8px 0 30px rgba(0, 0, 0, .12);
-}
-
-.drawer.open {
-    right: 0;
-    display: block;
-}
-
-.drawer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.8rem;
-}
-
-.drawer-title {
-    font-family: var(--font-prese);
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--brand-color);
-}
-
-.drawer-close {
-    font-size: 2rem;
-    line-height: 1;
-}
-
-.mnav-list li {
-    border-bottom: 1px solid var(--line-color);
-}
-
-.mnav-list a {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
-    padding: 1rem 0.2rem;
-}
-
-.mnav-list a:hover {
-    color: var(--brand-color);
-}
-
-.drawer-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1999;
 }
