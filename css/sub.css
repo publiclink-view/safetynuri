@@ -1,0 +1,414 @@
+@charset "utf-8";
+
+:root {
+    --article-width: 60rem;
+    --storm-blue: #258bec;
+    --storm-orange: #d75a31;
+    --storm-red: #bd3340;
+}
+
+/* ========== 상세 히어로 ========== */
+
+.article-hero {
+    min-height: 48.75rem;
+    position: relative;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.article-hero--storm {
+    background: linear-gradient(90deg, rgba(0, 13, 25, .2), rgba(0, 13, 25, .04)), url("../contents/sub1-hero.png") center / cover no-repeat;
+}
+
+.article-hero-copy {
+    width: min(var(--article-width), calc(100% - 3rem));
+    transform: translateY(1rem);
+}
+
+.article-label {
+    display: inline-block;
+    padding: .55rem 1.25rem;
+    border-radius: 2rem;
+    background: #05090d;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.article-hero h1 {
+    margin: 3rem 0 0;
+    font-size: 4.125rem;
+    line-height: 1.28;
+    letter-spacing: -.18rem;
+}
+
+.article-hero-copy > p {
+    margin-top: 1.75rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+/* ========== 폭우 시나리오 ========== */
+
+.storm-article {
+    width: min(var(--article-width), calc(100% - 3rem));
+    margin: 0 auto;
+    padding: 12rem 0 15rem;
+}
+
+.article-intro {
+    font-size: 1.125rem;
+    line-height: 2;
+    color: #444;
+}
+
+.scenario-tabs {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background: #121d2d;
+    position: sticky;
+    top: 0;
+    z-index: 15;
+}
+
+.scenario-tabs a {
+    padding: 1.05rem .5rem;
+    color: #fff;
+    text-align: center;
+    font-size: .925rem;
+    border-right: 1px solid rgba(255, 255, 255, .3);
+    transition: background-color .25s ease;
+}
+
+.scenario-tabs a:nth-child(1):hover,
+.scenario-tabs a:nth-child(1):focus-visible,
+.scenario-tabs a:nth-child(1)[aria-current="true"],
+.scenario-tabs a:nth-child(5):hover,
+.scenario-tabs a:nth-child(5):focus-visible,
+.scenario-tabs a:nth-child(5)[aria-current="true"] {
+    background: var(--storm-blue);
+}
+
+.scenario-tabs a:nth-child(2):hover,
+.scenario-tabs a:nth-child(2):focus-visible,
+.scenario-tabs a:nth-child(2)[aria-current="true"],
+.scenario-tabs a:nth-child(4):hover,
+.scenario-tabs a:nth-child(4):focus-visible,
+.scenario-tabs a:nth-child(4)[aria-current="true"] {
+    background: var(--storm-orange);
+}
+
+.scenario-tabs a:nth-child(3):hover,
+.scenario-tabs a:nth-child(3):focus-visible,
+.scenario-tabs a:nth-child(3)[aria-current="true"] {
+    background: var(--storm-red);
+}
+
+.scenario-tabs a:last-child {
+    border-right: 0;
+}
+
+.scenario-flow {
+    --rail-width: 2.25rem;
+    margin-top: 9rem;
+    position: relative;
+}
+
+.scenario-flow::before {
+    content: "";
+    width: var(--rail-width);
+    position: absolute;
+    inset: 0 auto 0 0;
+    background: linear-gradient(
+        to bottom,
+        var(--storm-blue) 0 19%,
+        var(--storm-orange) 21% 39%,
+        var(--storm-red) 41% 59%,
+        var(--storm-orange) 61% 79%,
+        var(--storm-blue) 81% 100%
+    );
+}
+
+.scenario-stage {
+    --accent: var(--storm-blue);
+    display: grid;
+    grid-template-columns: var(--rail-width) minmax(0, 1fr);
+    scroll-margin-top: 6rem;
+}
+
+#stage-2,
+#stage-4 { --accent: var(--storm-orange); }
+#stage-3 { --accent: var(--storm-red); }
+
+.scenario-stage h2 {
+    margin: 0;
+    padding: 1.5rem .35rem;
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.scenario-stage h2 span {
+    font-weight: 800;
+}
+
+.stage-body {
+    padding: 5.5rem 0 0 3rem;
+    text-align: center;
+}
+
+.scenario-stage:first-child .stage-body {
+    border-top: 1px solid #cfd3d7;
+}
+
+.rain-chart {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.stage-metrics {
+    margin-top: 1.75rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+.stage-metrics > div {
+    min-height: 8.25rem;
+    padding: 1rem;
+    border: 2px solid var(--accent);
+    border-radius: .35rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--accent);
+    background: #fff;
+}
+
+.stage-metrics > div::before {
+    content: "";
+    width: .8rem;
+    height: .8rem;
+    position: absolute;
+    top: -.5rem;
+    left: 50%;
+    border-left: 2px solid var(--accent);
+    border-top: 2px solid var(--accent);
+    background: #fff;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.stage-metrics small {
+    font-size: .8rem;
+    font-weight: 700;
+}
+
+.stage-metrics strong {
+    font-size: 2.75rem;
+    line-height: 1.15;
+}
+
+.stage-metrics p {
+    margin: .25rem 0 0;
+    font-size: .75rem;
+}
+
+.stage-tags {
+    margin: 1rem 0 0;
+    color: #338cdc;
+    font-size: .9rem;
+    line-height: 1.7;
+}
+
+.stage-orange .stage-tags,
+.stage-red .stage-tags {
+    color: #d45c3d;
+}
+
+.stage-events {
+    margin-top: 2.5rem;
+    padding-top: 2.25rem;
+    border-top: 1px solid #cfd3d7;
+}
+
+.stage-events h3 {
+    margin: 0 0 .75rem;
+    font-size: 1.05rem;
+}
+
+.stage-events p {
+    margin: 0;
+    font-size: .95rem;
+    line-height: 1.85;
+    color: #444;
+}
+
+.stage-summary {
+    margin: 2.5rem 0 0;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    color: #4d4d4d;
+    font-size: .95rem;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.scenario-stage + .scenario-stage .stage-body::before {
+    content: "⌄\A⌄";
+    display: block;
+    margin-bottom: 2.5rem;
+    color: var(--accent);
+    white-space: pre;
+    line-height: .55;
+    font-size: 2rem;
+}
+
+.stage-final .stage-body {
+    padding-bottom: 0;
+}
+
+body:has(.storm-article) main {
+    background: #f3f3f3;
+}
+
+@media (max-width: 900px) {
+    .article-hero {
+        min-height: 34rem;
+    }
+
+    .article-hero--storm {
+        background-position: 58% center;
+    }
+
+    .article-hero h1 {
+        font-size: clamp(2.2rem, 7vw, 3.25rem);
+    }
+
+    .article-hero-copy > p {
+        font-size: 1.25rem;
+    }
+
+    .storm-article {
+        padding: 6rem 0 8rem;
+    }
+
+    .scenario-tabs {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .scenario-tabs a {
+        padding: .65rem .15rem;
+        border-right: 1px solid rgba(255, 255, 255, .2);
+        border-bottom: 0;
+        font-size: .65rem;
+        white-space: nowrap;
+    }
+
+    .scenario-tabs a:last-child {
+        border-right: 0;
+    }
+
+    .scenario-flow {
+        --rail-width: 1.75rem;
+        margin-top: 5rem;
+    }
+
+    .scenario-stage {
+        grid-template-columns: var(--rail-width) minmax(0, 1fr);
+    }
+
+    .stage-body {
+        padding-left: 1rem;
+    }
+
+}
+
+@media (max-width: 540px) {
+    .article-hero {
+        min-height: 30rem;
+        align-items: end;
+    }
+
+    .article-hero-copy {
+        width: calc(100% - 2rem);
+        padding-bottom: 3.5rem;
+        transform: none;
+    }
+
+    .article-label {
+        font-size: .875rem;
+    }
+
+    .article-hero h1 {
+        margin-top: 1.5rem;
+        font-size: 2rem;
+        letter-spacing: -.08rem;
+    }
+
+    .article-hero-copy > p {
+        margin-top: 1rem;
+        font-size: 1rem;
+    }
+
+    .storm-article {
+        width: calc(100% - 2rem);
+        padding-top: 4rem;
+    }
+
+    .article-intro {
+        font-size: .95rem;
+        line-height: 1.8;
+    }
+
+    .scenario-stage {
+        grid-template-columns: var(--rail-width) minmax(0, 1fr);
+    }
+
+    .scenario-flow {
+        --rail-width: 1.5rem;
+    }
+
+    .scenario-stage h2 {
+        font-size: .85rem;
+    }
+
+    .stage-body {
+        padding-left: .75rem;
+        padding-top: 4rem;
+        padding-bottom: 0;
+    }
+
+    .stage-tags,
+    .stage-events p,
+    .stage-summary {
+        font-size: .8rem;
+    }
+
+    .stage-summary {
+        padding: 1rem;
+    }
+
+    .stage-metrics {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .stage-metrics > div {
+        min-height: 6.5rem;
+    }
+
+    .stage-metrics strong {
+        font-size: 2.1rem;
+    }
+
+}

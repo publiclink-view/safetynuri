@@ -3,7 +3,7 @@
 /* ========== 히어로 ========== */
 
 .hero {
-    height: 65rem;
+    aspect-ratio: 24 / 13;
     background: linear-gradient(90deg, rgba(0, 8, 14, .68), rgba(0, 20, 31, .14)), url("../contents/main_hero.jpg") center 54% / cover no-repeat;
     color: white;
     position: relative;
@@ -26,7 +26,7 @@
 }
 
 .hero-copy {
-    padding-top: 15.3125rem;
+    padding-top: clamp(5rem, 12.8vw, 15.3125rem);
 }
 
 .hero h1,
@@ -59,12 +59,53 @@
 }
 
 .edge-arrow {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
     position: absolute;
     z-index: 2;
     top: 50%;
-    font-size: 3.375rem;
-    font-weight: 200;
+    font-size: 0;
     color: white;
+}
+
+.edge-arrow::before,
+.edge-arrow::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+}
+
+.edge-arrow::before {
+    width: 1.75rem;
+    height: 1px;
+    background: currentColor;
+    transform: translateY(-50%);
+}
+
+.edge-arrow::after {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-top: 1px solid currentColor;
+    border-left: 1px solid currentColor;
+}
+
+.edge-arrow--left::before {
+    left: 0;
+}
+
+.edge-arrow--left::after {
+    left: 0;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+.edge-arrow--right::before {
+    right: 0;
+}
+
+.edge-arrow--right::after {
+    right: 0;
+    transform: translateY(-50%) rotate(135deg);
 }
 
 .edge-arrow--left {
@@ -75,10 +116,19 @@
     right: 3.625rem;
 }
 
+@media (max-width: 1600px) {
+    .edge-arrow--left {
+        left: 8px;
+    }
+
+    .edge-arrow--right {
+        right: 8px;
+    }
+}
+
 /* ========== 주요 콘텐츠 ========== */
 
 .feature {
-    height: 49.375rem;
     background: var(--blue);
     color: white;
 }
@@ -87,13 +137,13 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    transform: translateY(-8.75rem);
+    transform: translateY(clamp(-8.75rem, calc(11.75rem - 17.1vw), 0rem));
 }
 
 .feature-card img,
 .feature-placeholder {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 6 / 7;
     object-fit: cover;
 }
 
@@ -125,8 +175,7 @@
 /* ========== 안전산업24 ========== */
 
 .safety24 {
-    height: 68.75rem;
-    padding-top: 6.875rem;
+    padding: 6.875rem 0 0;
     background: linear-gradient(to bottom, #ffffff 0%, #ffffff 85%, #d9dbde 100%);
     border-bottom: 1px solid #d4d6d9;
     overflow: hidden;
@@ -194,20 +243,22 @@
 .info-track {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 29.0625rem;
+    grid-auto-columns: 29rem;
     gap: 1.5rem;
 }
 
 .info-card {
-    height: 41.25rem;
+    aspect-ratio: 29 / 35;
     background: var(--blue);
     color: #fff;
-    padding: 2.6875rem 1.4375rem 0;
+    padding: 2.6875rem 1.40625rem 0;
     overflow: hidden;
 }
 
 .info-card a {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .info-card strong {
@@ -232,7 +283,11 @@
 .info-card img,
 .empty-art {
     width: 100%;
-    height: 20.625rem;
+    height: auto;
+    aspect-ratio: 419 / 310;
+    margin-top: auto;
+    min-height: 0;
+    flex: 0 0 auto;
     object-fit: cover;
     background: #fff;
 }
@@ -240,9 +295,9 @@
 /* ========== 포커스 ========== */
 
 .focus {
-    height: 56.25rem;
+    border-top: 7.8125rem solid #fff;
     background: var(--muted);
-    padding-top: 6.25rem;
+    padding: 6.25rem 0;
 }
 
 .focus-grid {
@@ -279,8 +334,7 @@
 /* ========== 미디어 ========== */
 
 .media {
-    height: 113.75rem;
-    padding-top: 6.5625rem;
+    padding: 6.5625rem 0 6.25rem;
     overflow: hidden;
 }
 
@@ -297,6 +351,7 @@
 }
 
 .video-row {
+    width: min(75rem, calc(100% - 3rem));
     margin-top: 5rem;
 }
 
@@ -304,7 +359,6 @@
     --video-card-width: 56.25rem;
     display: flex;
     gap: 16.875rem;
-    padding-inline: calc((100% - var(--video-card-width)) / 2);
     scroll-padding-inline: calc((100% - var(--video-card-width)) / 2);
     overflow: hidden;
     flex: 1;
@@ -316,6 +370,21 @@
     aspect-ratio: 16 / 9;
     border-radius: 1.75rem;
     background: #eee;
+    overflow: hidden;
+}
+
+.video-track img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-track a:first-child {
+    margin-inline-start: calc((100% - var(--video-card-width)) / 2);
+}
+
+.video-track a:last-child {
+    margin-inline-end: calc((100% - var(--video-card-width)) / 2);
 }
 
 .section-rule {
@@ -357,6 +426,17 @@
     scroll-snap-type: x mandatory;
 }
 
+.video-track,
+.cardnews-track {
+    padding-block: 3rem;
+    margin-block: -3rem;
+}
+
+.video-track {
+    padding-inline: 3rem;
+    margin-inline: -3rem;
+}
+
 .info-track::-webkit-scrollbar,
 .video-track::-webkit-scrollbar,
 .cardnews-track::-webkit-scrollbar {
@@ -375,6 +455,49 @@
 
 .cardnews-track > a {
     flex: 0 0 calc((100% - 8.125rem) / 3);
+    overflow: hidden;
+}
+
+.cardnews-track > a:first-child {
+    transform-origin: left center;
+}
+
+.cardnews-track > a:last-child {
+    transform-origin: right center;
+}
+
+.feature-card img,
+.info-card img,
+.focus-grid article img,
+.video-track a,
+.cardnews-track a {
+    transition: transform .6s cubic-bezier(.25, .8, .25, 1);
+}
+
+.feature-card:focus-within img,
+.info-card:focus-within img,
+.focus-grid article:focus-within img {
+    transform: translateY(-15px);
+}
+
+.video-track a:focus-visible,
+.cardnews-track a:focus-visible {
+    transform: scale(1.07);
+    z-index: 1;
+}
+
+@media (hover: hover) {
+    .feature-card:hover img,
+    .info-card:hover img,
+    .focus-grid article:hover img {
+        transform: translateY(-15px);
+    }
+
+    .video-track a:hover,
+    .cardnews-track a:hover {
+        transform: scale(1.07);
+        z-index: 1;
+    }
 }
 
 [data-scroll]:disabled {
@@ -383,6 +506,26 @@
 }
 
 @media (max-width: 1200px) {
+    .edge-arrow {
+        width: 1.5rem;
+    }
+
+    .edge-arrow::before {
+        width: 1.125rem;
+    }
+
+    .edge-arrow--left {
+        left: 8px;
+    }
+
+    .edge-arrow--right {
+        right: 8px;
+    }
+
+    .video-row {
+        width: min(var(--content), calc(100% - 3rem));
+    }
+
     .hero h1,.hero h2 {
         font-size: 3.25rem;
     }
@@ -399,8 +542,7 @@
         --video-card-width: 42.5rem;
     }
 
-    .feature,.safety24,.focus,.media {
-        height: auto;
+    .feature,.focus,.media {
         padding-bottom: 6.25rem;
     }
 
@@ -416,12 +558,8 @@
 
 @media (max-width: 800px) {
     .hero {
-        height: 42.5rem;
+        aspect-ratio: 20 / 17;
         background-position: 58% center;
-    }
-
-    .hero-copy {
-        padding-top: 9.375rem;
     }
 
     .hero h1,.hero h2 {
@@ -439,22 +577,21 @@
     }
 
     .edge-arrow {
-        font-size: 2.125rem;
+        font-size: 0;
         top: auto;
         bottom: 1.625rem;
     }
 
     .edge-arrow--left {
-        left: 1.25rem;
+        left: 8px;
     }
 
     .edge-arrow--right {
-        right: 1.25rem;
+        right: 8px;
     }
 
     .feature-grid {
         grid-template-columns: 1fr;
-        transform: translateY(-2.1875rem);
     }
 
     .feature {
@@ -486,7 +623,6 @@
 
     .info-card {
         flex: 0 0 min(84vw,26.25rem);
-        height: 36.875rem;
         scroll-snap-align: start;
     }
 
@@ -536,11 +672,7 @@
 
 @media (max-width: 500px) {
     .hero {
-        height: 36.875rem;
-    }
-
-    .hero-copy {
-        padding-top: 7.5rem;
+        aspect-ratio: 2 / 3;
     }
 
     .hero h1,.hero h2 {

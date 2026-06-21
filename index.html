@@ -52,27 +52,25 @@
 
       <section class="feature" id="feature" aria-label="이번 호 주요 콘텐츠">
         <div class="feature-grid wrap">
-          <article class="feature-card">
-            <a href="#">
-              <img src="contents/main_feature_lab.jpg" alt="침수된 지하차도와 12시간 시계 그래픽">
+          <article class="feature-card" id="feature-lab">
+            <a href="sub-1.html">
+              <img src="contents/main_feature_lab.png" alt="침수된 지하차도와 12시간 시계 그래픽">
               <strong>재난안전 실험실</strong>
               <h2>“서울에 12시간<br>폭우가 내린다면?”</h2>
             </a>
           </article>
 
-          <article class="feature-card">
-            <a href="#">
-              <img src="contents/main_feature_solution.jpg" alt="호우로 붕괴된 해안 도로">
+          <article class="feature-card" id="feature-solution">
+            <a href="sub-2.html">
+              <img src="contents/main_feature_solution.png" alt="호우로 붕괴된 해안 도로">
               <strong>재난안전 솔루션</strong>
               <h2>장기·국지성 호우 대응 기술<br>기후위기 극복 제품·솔루션</h2>
             </a>
           </article>
 
-          <article class="feature-card feature-card--blank">
+          <article class="feature-card" id="feature-interview">
             <a href="#">
-              <div class="feature-placeholder">
-                <span>6월 16일</span>
-              </div>
+              <img src="contents/main_feature_interview.jpg" alt="기후위기 전문가 대담 참여자">
               <strong>전문가 대담</strong>
               <h2>상시적 기후위기 시대,<br>재난안전산업의 미래</h2>
             </a>
@@ -95,7 +93,7 @@
             <button type="button" data-scroll="info" data-direction="1" aria-label="다음">›</button>
           </div>
           <div class="info-track" data-track="info">
-            <article class="info-card">
+            <article class="info-card" id="policy-signal">
               <a href="#">
                 <strong>정책 시그널</strong>
                 <h3>2026 국민안전산업 펀드 결성<br>주요 재난안전산업 진흥 정책들</h3>
@@ -104,16 +102,16 @@
               </a>
             </article>
 
-            <article class="info-card">
+            <article class="info-card" id="policy-info">
               <a href="#">
                 <strong>세이프티 INFO</strong>
                 <h3>재난안전산업이 나아갈 길,<br>통계로 본다</h3>
                 <span>→</span>
-                <img src="contents/main_safety_info.jpg" alt="재난안전산업 통계 인포그래픽">
+                <img src="contents/main_safety_info.png" alt="재난안전산업 통계 인포그래픽">
               </a>
             </article>
 
-            <article class="info-card">
+            <article class="info-card" id="industry-tech">
               <a href="#">
                 <strong>이 제품, 이 기술 1</strong>
                 <h3>최신<br>재난안전신기술</h3>
@@ -122,7 +120,7 @@
               </a>
             </article>
 
-            <article class="info-card">
+            <article class="info-card" id="industry-cert">
               <a href="#">
                 <strong>이 제품, 이 기술 2</strong>
                 <h3>최신<br>재난안전인증제품</h3>
@@ -136,7 +134,7 @@
 
       <section class="focus" id="focus">
         <div class="focus-grid wrap">
-          <article>
+          <article id="industry-company">
             <a href="#">
               <img src="contents/main_focus_company.jpg" alt="디아이엔지니어링 관계자">
               <strong>포커스, 이 기업</strong>
@@ -144,17 +142,17 @@
             </a>
           </article>
 
-          <article>
+          <article id="policy-catchup">
             <a href="#">
-              <div class="focus-placeholder"></div>
+              <img src="contents/main_catchup.jpg" alt="해외 재난 대응 물자를 운반하는 현장">
               <strong>캐치업</strong>
               <h2>국내 vs 해외<br>재난안전산업 정책 함께 보기</h2>
             </a>
           </article>
 
-          <article>
+          <article id="information-news">
             <a href="#">
-              <img src="contents/main_news.jpg" alt="재난안전산업 시설 전경">
+              <img src="contents/main_news.png" alt="가뭄과 폭염 대응 재난안전산업 진흥시설">
               <strong>재난안전산업 뉴스를 한눈에</strong>
               <h2>우리 산업계 주요 뉴스와<br>지원 사업을 확인해요</h2>
             </a>
@@ -163,20 +161,23 @@
       </section>
 
       <section class="media" id="media">
-        <h2>영상 바로보기</h2>
+        <h2 id="information-video">영상 바로보기</h2>
         <div class="video-row wrap">
           <button type="button" data-scroll="videos" data-direction="-1" aria-label="이전 영상">‹</button>
           <div class="video-track" data-track="videos">
-            <a href="#" aria-label="영상 1"></a>
-            <a href="#" aria-label="영상 2"></a>
-            <a href="#" aria-label="영상 3"></a>
+            <a href="#" aria-label="다행이와 함께하는 태풍·호우 국민행동요령 영상">
+              <img src="contents/main_video_1.png" alt="다행이와 함께하는 태풍·호우 국민행동요령 영상 썸네일">
+            </a>
+            <a href="#" aria-label="우리 마을 명예 순찰대 영상">
+              <img src="contents/main_video_2.png" alt="우리 마을 명예 순찰대 영상 썸네일">
+            </a>
           </div>
           <button type="button" data-scroll="videos" data-direction="1" aria-label="다음 영상">›</button>
         </div>
 
         <div class="section-rule wrap"></div>
 
-        <h2>카드뉴스 바로보기</h2>
+        <h2 id="information-cardnews">카드뉴스 바로보기</h2>
         <div class="cardnews-row wrap">
           <button type="button" data-scroll="cardnews" data-direction="-1" aria-label="이전 카드뉴스">‹</button>
           <div class="cardnews-track" data-track="cardnews">

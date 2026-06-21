@@ -5,13 +5,13 @@
 .site-header {
     height: 4.375rem;
     padding: 0 1.875rem;
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
-    gap: 1.875rem;
     background: #000b12;
     color: white;
     position: relative;
-    z-index: 5;
+    z-index: 20;
 }
 
 .brand {
@@ -36,20 +36,107 @@
 }
 
 .main-nav {
-    display: flex;
-    gap: 5.9375rem;
-    margin: auto;
+    align-self: stretch;
+    justify-self: center;
 }
 
-.main-nav a {
+.main-menu,
+.sub-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-menu {
+    width: clamp(36rem, 55vw, 45rem);
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+}
+
+.main-menu > li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.main-menu > li > a {
     font-size: 1rem;
     font-weight: 700;
+    white-space: nowrap;
+    transition: color .2s ease;
+}
+
+.main-menu > li > a:hover,
+.main-menu > li > a:focus-visible {
+    color: #8fc7ff;
+}
+
+.mega-menu {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #000b12;
+    color: white;
+    min-height: 12.5rem;
+    box-shadow: 0 0.75rem 1.75rem rgba(0, 11, 18, .18);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.5rem);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s;
+}
+
+.mega-menu-inner {
+    width: clamp(36rem, 55vw, 45rem);
+    margin: 0 auto;
+    padding: 1.5rem 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.mega-menu-title {
+    display: none;
+}
+
+.sub-menu {
+    padding: 0;
+    text-align: left;
+}
+
+.sub-menu li + li {
+    margin-top: 0.75rem;
+}
+
+.sub-menu a {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    white-space: normal;
+    transition: color .2s ease, transform .2s ease;
+}
+
+.sub-menu a:hover,
+.sub-menu a:focus-visible {
+    color: #8fc7ff;
+    transform: translateX(0.1875rem);
+}
+
+.main-nav:hover .mega-menu,
+.main-nav:focus-within .mega-menu,
+.site-header.is-menu-open .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .header-tools {
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    justify-self: end;
 }
 
 .search-icon {
@@ -72,15 +159,43 @@
 }
 
 .menu-icon {
-    width: 1.75rem;
+    width: 28px;
+    padding: 0;
+    margin-right: 8px;
     display: grid;
-    gap: 0.375rem;
+    gap: 6px;
 }
 
 .menu-icon i {
-    height: 0.1875rem;
+    height: 3px;
     background: #84929a;
-    border-radius: 0.125rem;
+    transition: transform .25s ease, opacity .2s ease;
+}
+
+.site-header.is-menu-open .menu-icon i:first-child {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.site-header.is-menu-open .menu-icon i:nth-child(2) {
+    opacity: 0;
+}
+
+.site-header.is-menu-open .menu-icon i:last-child {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+@media (min-width: 901px) {
+    .main-menu,
+    .mega-menu-inner {
+        transform: translateX(4.5rem);
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 901px) {
+    .brand span,
+    .brand b {
+        display: none;
+    }
 }
 
 /* ========== 푸터 ========== */
@@ -161,12 +276,74 @@
     .site-header {
         height: 4rem;
         padding: 0 1rem;
+        display: flex;
     }
 
     .brand span,
-    .brand b,
+    .brand b {
+        display: none;
+    }
+
     .main-nav {
         display: none;
+        width: 100%;
+        max-height: calc(100vh - 4rem);
+        overflow-y: auto;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #000b12;
+        border-top: 1px solid rgba(255, 255, 255, .15);
+    }
+
+    .site-header.is-menu-open .main-nav {
+        display: block;
+    }
+
+    .main-menu {
+        display: none;
+    }
+
+    .mega-menu {
+        width: auto;
+        margin: 0 1rem;
+        padding: 0;
+        position: static;
+        background: transparent;
+        color: white;
+        border: 0;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .mega-menu-inner {
+        width: auto;
+        padding: 0.5rem 0 1rem;
+        display: block;
+    }
+
+    .mega-menu-group {
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    .mega-menu-title {
+        display: block;
+        padding: 0;
+        border: 0;
+        font-size: 1.125rem;
+    }
+
+    .sub-menu {
+        padding: 0.875rem 0 0 1rem;
+        color: #c7d0d5;
+        text-align: left;
+    }
+
+    .sub-menu a {
+        white-space: normal;
     }
 
     .header-tools {
