@@ -32,7 +32,7 @@
 .hero h1,
 .hero h2 {
     font-size: 4rem;
-    line-height: 1.48;
+    line-height: 1.3;
     letter-spacing: -0.1875rem;
 }
 
@@ -176,7 +176,7 @@
 
 .safety24 {
     padding: 6.875rem 0 0;
-    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 85%, #d9dbde 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 91%, #c7cbd0 100%);
     border-bottom: 1px solid #d4d6d9;
     overflow: hidden;
 }
@@ -185,22 +185,14 @@
     text-align: center;
 }
 
-.safety24-heading .government-mark {
-    width: 4.75rem;
-    height: 4.75rem;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 0.875rem;
-}
-
-.safety24-heading .government-mark i {
-    background: #fff;
-}
-
 .safety24-heading h2 {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 2.75rem;
+    display: block;
+    width: 280px;
+    aspect-ratio: 500 / 136;
+    margin: 0 auto;
+    background: url("../contents/main-safe24.png") no-repeat 50% 50% / contain;
+    text-indent: -9999px;
+    overflow: hidden;
 }
 
 .safety24-heading p {
@@ -209,12 +201,28 @@
 }
 
 .pill-link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
     margin-top: 1.375rem;
     border: 1px solid;
     border-radius: 2.5rem;
-    padding: 0.6875rem 1.875rem;
+    padding: 0.6875rem 3.125rem 0.6875rem 1.875rem;
     font-size: 1.4375rem;
+}
+
+.pill-link::after {
+    content: "";
+    position: absolute;
+}
+
+.pill-link::after {
+    width: 18px;
+    aspect-ratio: 1 / 1;
+    right: 1.5625rem;
+    top: 50%;
+    background: url("../images/arrow-2.png") no-repeat 50% 50% / contain;
+    transform: translateY(-50%);
 }
 
 .info-carousel {
@@ -240,6 +248,52 @@
     flex: 0 0 auto;
 }
 
+.small-controls button,
+.video-row > button,
+.cardnews-row > button {
+    position: relative;
+    width: 3.25rem;
+    height: 3.25rem;
+    font-size: 0;
+}
+
+.small-controls button::before,
+.video-row > button::before,
+.cardnews-row > button::before {
+    content: "";
+    position: absolute;
+    width: 0.75rem;
+    height: 0.75rem;
+    top: 50%;
+    left: 50%;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+}
+
+.small-controls button[data-direction="-1"]::before,
+.video-row > button[data-direction="-1"]::before,
+.cardnews-row > button[data-direction="-1"]::before {
+    transform: translate(-35%, -50%) rotate(-135deg);
+}
+
+.small-controls button[data-direction="1"]::before,
+.video-row > button[data-direction="1"]::before,
+.cardnews-row > button[data-direction="1"]::before {
+    transform: translate(-65%, -50%) rotate(45deg);
+}
+
+.small-controls button:disabled,
+.video-row > button:disabled,
+.cardnews-row > button:disabled {
+    opacity: 1;
+}
+
+.small-controls button:disabled::before,
+.video-row > button:disabled::before,
+.cardnews-row > button:disabled::before {
+    opacity: .32;
+}
+
 .info-track {
     display: grid;
     grid-auto-flow: column;
@@ -248,10 +302,10 @@
 }
 
 .info-card {
-    aspect-ratio: 29 / 35;
+    aspect-ratio: 5 / 6.2;
     background: var(--blue);
     color: #fff;
-    padding: 2.6875rem 1.40625rem 0;
+    padding: 3rem 1.40625rem 0;
     overflow: hidden;
 }
 
@@ -263,6 +317,7 @@
 
 .info-card strong {
     font-size: 1.4375rem;
+    font-weight: 600;
 }
 
 .info-card h3 {
@@ -274,10 +329,33 @@
 }
 
 .info-card span {
-    font-size: 2.375rem;
+    position: relative;
     display: block;
-    text-align: right;
     height: 3.625rem;
+    font-size: 0;
+}
+
+.info-card span::before,
+.info-card span::after {
+    content: "";
+    position: absolute;
+    right: 0.1rem;
+    top: 50%;
+}
+
+.info-card span::before {
+    width: 3rem;
+    height: 1.5px;
+    background: currentColor;
+    transform: translateY(-40%);
+}
+
+.info-card span::after {
+    width: 0.8125rem;
+    height: 0.8125rem;
+    border-top: 1.5px solid currentColor;
+    border-right: 1.5px solid currentColor;
+    transform: translateY(-50%) rotate(45deg);
 }
 
 .info-card img,
@@ -309,7 +387,7 @@
 .focus-grid img,
 .focus-placeholder {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 455 / 371;
     object-fit: cover;
 }
 
@@ -320,7 +398,7 @@
 .focus-grid strong {
     display: block;
     font-size: 1.375rem;
-    padding: 1.5rem 0;
+    padding: 1.5rem 0 0.625rem;
     border-bottom: 1px solid #44566c;
 }
 
@@ -334,7 +412,7 @@
 /* ========== 미디어 ========== */
 
 .media {
-    padding: 6.5625rem 0 6.25rem;
+    padding: 6.5625rem 0 10rem;
     overflow: hidden;
 }
 
@@ -564,7 +642,7 @@
 
     .hero h1,.hero h2 {
         font-size: 2.375rem;
-        line-height: 1.35;
+        line-height: 1.3;
     }
 
     .hero-copy p {
@@ -607,7 +685,7 @@
     }
 
     .safety24-heading h2 {
-        font-size: 2.125rem;
+        width: 240px;
     }
 
     .safety24-heading p {
@@ -691,13 +769,8 @@
         font-size: 1.3125rem;
     }
 
-    .safety24-heading .government-mark {
-        width: 3.4375rem;
-        height: 3.4375rem;
-    }
-
     .safety24-heading h2 {
-        font-size: 1.8125rem;
+        width: 200px;
     }
 
     .info-card {
