@@ -1,27 +1,30 @@
 @charset "utf-8";
 
 :root {
-    --talk-width: 52rem;
-    --talk-green: #6d876f;
+    --talk-width: 59.5rem;
+    --talk-green: #546f58;
+    --talk-rule: #391b1a;
+    --talk-text: #333;
+    --talk-soft: #f0f0f0;
 }
 
 .talk-hero {
-    min-height: 43rem;
-    padding: 7rem 1.5rem;
+    min-height: clamp(42rem, 52vw, 62rem);
+    padding: 7rem 1.5rem 6.2rem;
     display: grid;
-    place-items: center;
+    place-items: end center;
     color: #fff;
     text-align: center;
-    background: linear-gradient(rgba(8, 14, 17, .42), rgba(8, 14, 17, .56)), url("../contents/sub3-hero.jpg") center 42% / cover no-repeat;
+    background: linear-gradient(rgba(8, 14, 17, .08) 0%, rgba(8, 14, 17, .1) 42%, rgba(48, 16, 18, .78) 100%), url("../contents/sub3-hero.jpg") center 40% / cover no-repeat;
 }
 
 .talk-hero-copy span {
     display: inline-block;
-    padding: .42rem 1.2rem;
+    padding: .44rem 1.35rem .42rem;
     border-radius: 2rem;
     color: #fff;
     background: #050505;
-    font-size: .9rem;
+    font-size: 1.05rem;
     font-weight: 700;
 }
 
@@ -33,57 +36,162 @@
 }
 
 .talk-hero h1 {
-    margin-top: 1.1rem;
-    font-size: clamp(2.6rem, 4vw, 4.5rem);
-    line-height: 1.22;
-    letter-spacing: -.2rem;
+    margin-top: 1.15rem;
+    font-size: clamp(3.1rem, 4.4vw, 5.25rem);
+    line-height: 1.1;
+    letter-spacing: -.18rem;
 }
 
 .talk-people {
-    margin-top: 1.5rem;
-    font-size: 1.05rem;
+    margin-top: 1.55rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.42rem;
     font-weight: 700;
+}
+
+/* ===== 참여자 카드 ===== */
+.talk-profiles {
+    padding: 5.05rem 1.5rem 4.6rem;
+    background: var(--talk-soft);
+}
+
+.talk-profiles-grid {
+    width: min(var(--talk-width), 100%);
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+}
+
+.talk-profile {
+    text-align: center;
+}
+
+.talk-profile-photo {
+    display: block;
+    width: 8.35rem;
+    height: 8.35rem;
+    margin: 0 auto 1.48rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #d7dadc;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .05), 0 .45rem 1.1rem rgba(0, 0, 0, .09);
+}
+
+.talk-profile-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.talk-profile-photo--park img {
+    object-position: 14% 36%;
+    transform: scale(2.75);
+    transform-origin: 17% 35%;
+}
+
+.talk-profile-photo--kim img {
+    object-position: 52% 34%;
+    transform: scale(2.75);
+    transform-origin: 52% 35%;
+}
+
+.talk-profile-photo--young img {
+    object-position: 76% 39%;
+    transform: scale(2.75);
+    transform-origin: 76% 39%;
+}
+
+.talk-profile-name {
+    margin: 0;
+    padding-top: .95rem;
+    border-top: 2px solid #858585;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111;
+}
+
+.talk-profile-org {
+    margin: .5rem 0 .9rem;
+    font-size: .88rem;
+    font-weight: 600;
+    color: #2f3639;
+}
+
+.talk-profile-desc {
+    margin: 0;
+    font-size: .82rem;
+    line-height: 1.65;
+    color: #6b7174;
 }
 
 .talk-article {
     width: min(var(--talk-width), calc(100% - 3rem));
     margin: 0 auto;
-    padding: 6.5rem 0 11rem;
+    padding: 6.15rem 0 10rem;
 }
 
 .talk-article > p {
-    margin: 0 0 1.2rem;
-    color: #30373a;
-    font-size: .96rem;
-    line-height: 1.9;
+    margin: 0 0 1.42rem;
+    color: var(--talk-text);
+    font-size: 1rem;
+    line-height: 2;
 }
 
 .talk-article > .talk-lead {
-    margin-bottom: 4.5rem;
-    font-size: 1.05rem;
+    width: min(100%, 56rem);
+    margin: 0 auto 4.1rem;
+    text-align: center;
+    color: #2d2d2d;
+    font-size: 1.06rem;
     font-weight: 600;
-    line-height: 1.95;
+    line-height: 2.05;
+}
+
+.talk-divider {
+    margin: 1.9rem 0 4.05rem !important;
+    text-align: center;
+    color: #b7bcbf;
+    font-size: 1.6rem;
+    letter-spacing: .3em;
+    line-height: 1;
 }
 
 .talk-article h2 {
-    margin: 3.6rem 0 1rem;
-    font-size: 1.3rem;
-    line-height: 1.45;
-    letter-spacing: -.035rem;
+    margin: 3.85rem 0 .62rem;
+    padding-top: 1.38rem;
+    border-top: 2px solid var(--talk-rule);
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -.075rem;
+    color: var(--talk-rule);
 }
 
 .talk-article p + h2,
-.talk-photo + h2 {
-    margin-top: 4rem;
+.talk-photo + h2,
+.talk-quote + h2 {
+    margin-top: 4.5rem;
+}
+
+.talk-sub {
+    margin: 0 0 2rem !important;
+    color: #5a403b;
+    font-size: 1.32rem !important;
+    font-weight: 600;
+    line-height: 1.45 !important;
 }
 
 .talk-article strong {
     margin-right: .35rem;
-    color: #111;
+    color: #191919;
 }
 
 .talk-photo {
-    margin: 3.8rem 0;
+    margin: 3.85rem 0;
 }
 
 .talk-photo img {
@@ -92,8 +200,15 @@
     object-fit: cover;
 }
 
+.talk-photo figcaption {
+    margin-top: .72rem;
+    color: #8a8a8a;
+    font-size: .82rem;
+    line-height: 1.65;
+}
+
 .talk-photo--wide {
-    width: min(76rem, calc(100vw - 3rem));
+    width: 100%;
     margin-left: 50%;
     transform: translateX(-50%);
 }
@@ -103,12 +218,13 @@
 }
 
 .talk-photo--medium {
-    width: 40rem;
+    width: 100%;
     max-width: 100%;
 }
 
 .talk-photo--medium img {
-    aspect-ratio: 16 / 9;
+    border: 1px solid #d2d6d8;
+    object-fit: contain;
 }
 
 .talk-photo--split {
@@ -125,23 +241,79 @@
     object-fit: contain;
 }
 
-.talk-article blockquote {
-    width: 40rem;
-    max-width: 100%;
-    margin: 4.5rem 0 3rem;
-    padding: 0;
-    color: var(--talk-green);
-    font-size: 1.55rem;
-    font-weight: 600;
-    line-height: 1.5;
-    letter-spacing: -.04rem;
+.talk-quote {
+    margin: 4.35rem 0 4.5rem;
+    display: grid;
+    grid-template-columns: 29.2rem 1fr;
+    align-items: center;
+    gap: 2.25rem;
 }
 
-.talk-article blockquote cite {
-    margin-top: .5rem;
+.talk-quote--reverse {
+    grid-template-columns: 1fr 29.2rem;
+}
+
+.talk-quote--reverse .talk-quote-photo {
+    order: 2;
+}
+
+.talk-quote-photo {
+    width: 29.2rem;
+    height: 19rem;
+    background-color: #d7dadc;
+    background-position: center;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .05);
+}
+
+.talk-quote-photo--kim {
+    background-image: url("../contents/sub3-quote-kim.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.talk-quote-photo--park {
+    background-image: url("../contents/sub3-quote-park.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.talk-quote-photo--young {
+    background-image: url("../contents/sub3-quote-young.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.talk-quote blockquote {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    color: var(--talk-green);
+    font-size: 1.38rem;
+    font-weight: 600;
+    line-height: 1.6;
+    letter-spacing: -.05rem;
+}
+
+.talk-quote--reverse blockquote {
+    text-align: right;
+}
+
+.talk-quote blockquote::before {
+    content: "";
+    display: block;
+    width: 1.8rem;
+    height: 1px;
+    margin-bottom: .8rem;
+    background: currentColor;
+}
+
+.talk-quote blockquote cite {
+    margin-top: 1.1rem;
     display: block;
     color: #2f3639;
-    font-size: .78rem;
+    font-size: .88rem;
+    font-weight: 600;
     font-style: normal;
 }
 
@@ -181,8 +353,38 @@
         min-height: 12rem;
     }
 
-    .talk-article blockquote {
-        margin-block: 3.5rem 2.5rem;
-        font-size: 1.3rem;
+    .talk-profiles {
+        padding: 3rem 1rem 0.5rem;
+    }
+
+    .talk-profiles-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .talk-article h2 {
+        font-size: 1.4rem;
+    }
+
+    .talk-quote,
+    .talk-quote--reverse {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        margin-block: 3.5rem;
+    }
+
+    .talk-quote--reverse .talk-quote-photo {
+        order: 0;
+    }
+
+    .talk-quote-photo {
+        width: 10rem;
+        height: 8rem;
+    }
+
+    .talk-quote blockquote,
+    .talk-quote--reverse blockquote {
+        font-size: 1.2rem;
+        text-align: left;
     }
 }

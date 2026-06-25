@@ -54,12 +54,12 @@
 .storm-article {
     width: min(var(--article-width), calc(100% - 3rem));
     margin: 0 auto;
-    padding: 12rem 0 15rem;
+    padding: 10.5rem 0 11rem;
 }
 
 .article-intro {
-    font-size: 1.125rem;
-    line-height: 2;
+    font-size: 1.1875rem;
+    line-height: 1.86;
     color: #444;
 }
 
@@ -68,18 +68,31 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     background: #121d2d;
+    border: 1px solid rgba(255, 255, 255, .22);
+    overflow: hidden;
     position: sticky;
-    top: 0;
+    top: 4.375rem;
     z-index: 15;
 }
 
 .scenario-tabs a {
-    padding: 1.05rem .5rem;
+    padding: .85rem .5rem;
     color: #fff;
     text-align: center;
     font-size: .925rem;
-    border-right: 1px solid rgba(255, 255, 255, .3);
+    position: relative;
     transition: background-color .25s ease;
+}
+
+.scenario-tabs a:not(:last-child)::after {
+    content: "";
+    width: 1px;
+    height: 75%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    background: rgba(255, 255, 255, .28);
+    transform: translateY(-50%);
 }
 
 .scenario-tabs a:nth-child(1):hover,
@@ -106,29 +119,10 @@
     background: var(--storm-red);
 }
 
-.scenario-tabs a:last-child {
-    border-right: 0;
-}
-
 .scenario-flow {
     --rail-width: 2.25rem;
-    margin-top: 9rem;
+    margin-top: 6.5rem;
     position: relative;
-}
-
-.scenario-flow::before {
-    content: "";
-    width: var(--rail-width);
-    position: absolute;
-    inset: 0 auto 0 0;
-    background: linear-gradient(
-        to bottom,
-        var(--storm-blue) 0 19%,
-        var(--storm-orange) 21% 39%,
-        var(--storm-red) 41% 59%,
-        var(--storm-orange) 61% 79%,
-        var(--storm-blue) 81% 100%
-    );
 }
 
 .scenario-stage {
@@ -142,26 +136,59 @@
 #stage-4 { --accent: var(--storm-orange); }
 #stage-3 { --accent: var(--storm-red); }
 
+#stage-2 {
+    --previous-accent: var(--storm-blue);
+}
+#stage-3 {
+    --previous-accent: var(--storm-orange);
+}
+#stage-4 {
+    --previous-accent: var(--storm-red);
+}
+#stage-5 { --previous-accent: var(--storm-orange); }
+
 .scenario-stage h2 {
     margin: 0;
     padding: 1.5rem .35rem;
     color: #fff;
+    background: var(--accent);
     font-size: 1.15rem;
     font-weight: 500;
     line-height: 1;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     z-index: 1;
 }
 
-.scenario-stage h2 span {
+.scenario-stage h2::before {
+    content: "";
+    width: 100%;
+    height: 5.5rem;
+    position: absolute;
+    left: 0;
+    pointer-events: none;
+    top: 0;
+    background: linear-gradient(to bottom, var(--previous-accent, var(--accent)), var(--accent));
+}
+
+.stage-title {
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
+    position: relative;
+    z-index: 1;
+    white-space: nowrap;
+    transform: rotate(90deg);
+}
+
+.stage-title strong {
     font-weight: 800;
 }
 
 .stage-body {
-    padding: 5.5rem 0 0 3rem;
+    padding: 4.25rem 0 0 3rem;
     text-align: center;
 }
 
@@ -176,14 +203,14 @@
 }
 
 .stage-metrics {
-    margin-top: 1.75rem;
+    margin-top: 1.35rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
 }
 
 .stage-metrics > div {
-    min-height: 8.25rem;
+    min-height: 7.25rem;
     padding: 1rem;
     border: 2px solid var(--accent);
     border-radius: .35rem;
@@ -200,7 +227,7 @@
     width: .8rem;
     height: .8rem;
     position: absolute;
-    top: -.5rem;
+    top: -.56rem;
     left: 50%;
     border-left: 2px solid var(--accent);
     border-top: 2px solid var(--accent);
@@ -214,7 +241,7 @@
 }
 
 .stage-metrics strong {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
     line-height: 1.15;
 }
 
@@ -236,8 +263,8 @@
 }
 
 .stage-events {
-    margin-top: 2.5rem;
-    padding-top: 2.25rem;
+    margin-top: 2rem;
+    padding-top: 1.75rem;
     border-top: 1px solid #cfd3d7;
 }
 
@@ -248,30 +275,36 @@
 
 .stage-events p {
     margin: 0;
-    font-size: .95rem;
-    line-height: 1.85;
+    font-size: 1rem;
+    line-height: 1.75;
     color: #444;
 }
 
 .stage-summary {
-    margin: 2.5rem 0 0;
-    padding: 1.25rem 1.5rem;
+    margin: 2rem 0 0;
+    padding: 1rem 1.35rem;
     background: #fff;
     color: #4d4d4d;
-    font-size: .95rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.7;
     text-align: left;
 }
 
 .scenario-stage + .scenario-stage .stage-body::before {
-    content: "⌄\A⌄";
+    content: "";
     display: block;
-    margin-bottom: 2.5rem;
-    color: var(--accent);
-    white-space: pre;
-    line-height: .55;
-    font-size: 2rem;
+    width: 1.35rem;
+    height: 2.45rem;
+    margin: -2.15rem auto 3.6rem;
+    background: currentColor;
+    color: var(--previous-accent);
+    mask: url("data:image/svg+xml,%3Csvg width='22' height='40' viewBox='0 0 22 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 2l9 9 9-9M2 16l9 9 9-9M2 30l9 9 9-9' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
 }
+
+#stage-2 { --previous-accent: var(--storm-blue); }
+#stage-3 { --previous-accent: var(--storm-orange); }
+#stage-4 { --previous-accent: var(--storm-red); }
+#stage-5 { --previous-accent: var(--storm-orange); }
 
 .stage-final .stage-body {
     padding-bottom: 0;
@@ -308,14 +341,8 @@ body:has(.storm-article) main {
 
     .scenario-tabs a {
         padding: .65rem .15rem;
-        border-right: 1px solid rgba(255, 255, 255, .2);
-        border-bottom: 0;
         font-size: .65rem;
         white-space: nowrap;
-    }
-
-    .scenario-tabs a:last-child {
-        border-right: 0;
     }
 
     .scenario-flow {

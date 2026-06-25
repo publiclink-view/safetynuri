@@ -7,7 +7,7 @@
 }
 
 .solution-hero {
-    min-height: 48.75rem;
+    min-height: 40rem;
     display: grid;
     place-items: center;
     color: #fff;
@@ -53,8 +53,8 @@
 .solution-watermark {
     margin: 0;
     position: absolute;
-    top: 0;
-    left: max(1.5rem, calc(50% - 46rem));
+    top: 9rem;
+    left: calc(max(1.5rem, 50% - 26rem) - var(--solution-bleed));
     z-index: 0;
     color: #e6e8ea;
     font-family: Arial, sans-serif;
@@ -180,12 +180,12 @@
 .solution-side-word {
     margin: 0;
     position: absolute;
-    top: 0;
-    right: -20rem;
+    bottom: 0;
+    right: calc(var(--solution-bleed) * -1);
     z-index: 0;
     color: #e6e8ea;
     font-family: Arial, sans-serif;
-    font-size: 4.4rem;
+    font-size: 6rem;
     font-weight: 300;
     line-height: 1;
     writing-mode: vertical-rl;
@@ -236,7 +236,8 @@
     }
 
     .solution-watermark {
-        left: -1rem;
+        top: 6rem;
+        left: calc(max(2rem, 50% - 22rem) - var(--solution-bleed));
     }
 
     .solution-item {
@@ -252,7 +253,7 @@
     }
 
     .solution-side-word {
-        right: -4rem;
+        right: calc(var(--solution-bleed) * -1);
     }
 
     .solution-copy h2 {
