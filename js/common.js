@@ -1,53 +1,56 @@
-const layoutIncludes = document.querySelectorAll('[data-include]');
+const includeElements = document.querySelectorAll("[data-include]");
 
-function initializeHeader(element) {
-  if (!element.classList.contains('site-header')) return;
+function initializeHeader(header) {
+    const menuButton = header.querySelector(".menu-button");
+    const menuLabel = menuButton?.querySelector(".sr-only");
 
-  const menuButton = element.querySelector('.menu-icon');
-  if (!menuButton) return;
+    if (!menuButton) return;
 
-  const setMenuState = (isOpen) => {
-    element.classList.toggle('is-menu-open', isOpen);
-    menuButton.setAttribute('aria-expanded', String(isOpen));
-    menuButton.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
-  };
+    const setMenuState = (isOpen) => {
+        header.classList.toggle("is-menu-open", isOpen);
+        menuButton.setAttribute("aria-expanded", String(isOpen));
 
-  menuButton.addEventListener('click', () => {
-    setMenuState(!element.classList.contains('is-menu-open'));
-  });
+        if (menuLabel) {
+            menuLabel.textContent = isOpen ? "전체 메뉴 닫기" : "전체 메뉴 열기";
+        }
+    };
 
-  element.querySelectorAll('.main-nav a').forEach((link) => {
-    link.addEventListener('click', () => {
-      setMenuState(false);
+    menuButton.addEventListener("click", () => {
+        setMenuState(!header.classList.contains("is-menu-open"));
     });
-  });
 
-  element.addEventListener('keydown', (event) => {
-    if (event.key !== 'Escape' || !element.classList.contains('is-menu-open')) return;
-    setMenuState(false);
-    menuButton.focus();
-  });
+    header.querySelectorAll(".main-navigation a").forEach((link) => {
+        link.addEventListener("click", () => setMenuState(false));
+    });
+
+    header.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape" || !header.classList.contains("is-menu-open")) return;
+
+        setMenuState(false);
+        menuButton.focus();
+    });
 }
 
-async function loadLayoutPart(element) {
-  const source = element.dataset.include;
+async function loadInclude(element) {
+    const source = element.dataset.include;
 
-  try {
-    const response = await fetch(source);
-    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+    try {
+        const response = await fetch(source);
 
-    element.innerHTML = await response.text();
-    element.removeAttribute('aria-busy');
-    initializeHeader(element);
-    element.dispatchEvent(new CustomEvent('layout:loaded', { bubbles: true }));
-  } catch (error) {
-    element.removeAttribute('aria-busy');
-    element.dataset.includeError = '';
-    console.error(`공통 레이아웃을 불러오지 못했습니다: ${source}`, error);
-  }
+        if (!response.ok) {
+            throw new Error(`${response.status} ${response.statusText}`);
+        }
+
+        const template = document.createElement("template");
+        template.innerHTML = (await response.text()).trim();
+
+        const header = template.content.querySelector(".site-header");
+        element.replaceWith(template.content);
+
+        if (header) initializeHeader(header);
+    } catch (error) {
+        console.error(`공통 파일을 불러오지 못했습니다: ${source}`, error);
+    }
 }
 
-layoutIncludes.forEach((element) => {
-  element.setAttribute('aria-busy', 'true');
-  loadLayoutPart(element);
-});
+includeElements.forEach(loadInclude);

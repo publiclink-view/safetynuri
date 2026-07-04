@@ -1,35 +1,62 @@
 @charset "utf-8";
 
-:root {
-    --blue: #3f79b3;
-    --navy: #00121d;
-    --text: #161616;
-    --muted: #e9e9eb;
-    --content: 90rem;
-    --side: clamp(1.5rem, 12.5vw, 15rem);
-    --content-offset: max(1.5rem, calc((100vw - var(--content)) / 2));
-    --font-main: 'Pretendard', "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-}
-
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
 html {
+    min-width: 20rem;
+    font-size: 100%;
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
     margin: 0;
-    color: var(--text);
-    font-family: var(--font-main);
-    line-height: 1.5;
+    font-family: "Pretendard Variable", Pretendard, -apple-system,
+        BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", Arial,
+        sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
     word-break: keep-all;
+    overflow-wrap: anywhere;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
 }
 
 img {
-    display: block;
-    max-width: 100%;
+    height: auto;
 }
 
 a {
@@ -37,32 +64,58 @@ a {
     text-decoration: none;
 }
 
-button {
+button,
+input,
+select,
+textarea {
+    margin: 0;
     color: inherit;
     font: inherit;
+}
+
+button {
+    padding: 0;
     background: none;
     border: 0;
     cursor: pointer;
 }
 
-h1,
-h2,
-h3,
-p {
-    margin: 0;
+textarea {
+    resize: vertical;
 }
 
-.wrap {
-    width: min(var(--content), calc(100% - 3rem));
-    margin-inline: auto;
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
 }
 
-@media (max-width: 700px) {
-    :root {
-        --content-offset: 1rem;
+[hidden] {
+    display: none !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 0.0625rem;
+    height: 0.0625rem;
+    padding: 0;
+    margin: -0.0625rem;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
     }
 
-    .wrap {
-        width: min(100% - 2rem, var(--content));
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
