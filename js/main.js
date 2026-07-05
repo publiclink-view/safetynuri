@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const stopAutoPlay = () => window.clearInterval(timer);
     const startAutoPlay = () => {
         stopAutoPlay();
-        if (!reduceMotion) timer = window.setInterval(moveNext, 3000);
+        if (!reduceMotion) timer = window.setInterval(moveNext, 1500);
     };
 
     cards.forEach((card, position) => {
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const stopAutoPlay = () => window.clearInterval(timer);
     const startAutoPlay = () => {
         stopAutoPlay();
-        if (!reduceMotion) timer = window.setInterval(() => moveNext(), 3000);
+        if (!reduceMotion) timer = window.setInterval(() => moveNext(), 1500);
     };
 
     prevButton.addEventListener("click", () => {

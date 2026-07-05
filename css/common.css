@@ -241,6 +241,7 @@
     .main-navigation {
         display: none;
         width: 100%;
+        height: auto;
         max-height: calc(100dvh - 4rem);
         position: absolute;
         top: 100%;
@@ -289,6 +290,7 @@
 
     .mega-menu-title {
         display: block;
+        margin-bottom: 0.5rem;
         font-size: 1.125rem;
         font-weight: 600;
     }
@@ -296,6 +298,11 @@
     .sub-menu {
         padding: 0.875rem 0 0 1rem;
         color: #c7d0d5;
+        line-height: 1.45;
+    }
+
+    .sub-menu li + li {
+        margin-top: 0.5rem;
     }
 
     .header-tools {

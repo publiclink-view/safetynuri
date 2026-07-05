@@ -29,7 +29,7 @@
 
 /* Hero */
 .main-hero {
-    padding-block: 9.5rem 7rem;
+    padding-block: 5rem 7rem;
 }
 
 .hero-layout {
@@ -829,7 +829,7 @@ a:focus-visible .more-arrow,
     }
 
     .main-hero {
-        padding-block: 4.5rem;
+        padding-block: 2.5rem;
     }
 
     .hero-layout {
@@ -885,18 +885,40 @@ a:focus-visible .more-arrow,
     }
 
     .policy-layout > .layout-box,
-    .policy-layout .policy-wide,
-    .industry-focus {
+    .policy-layout .policy-wide {
         aspect-ratio: 16 / 10;
+    }
+
+    .industry-focus {
+        aspect-ratio: 1 / 1;
+    }
+
+    .policy-layout .policy-card:not(.policy-wide) {
+        aspect-ratio: 0.85 / 1;
     }
 
     .feature-card,
     .feature-layout .feature-wide {
-        aspect-ratio: 4 / 5;
+        aspect-ratio: 1 / 0.8;
     }
 
     .feature-wide .feature-card-content {
         width: 100%;
+        padding-bottom: 3.25rem;
+    }
+
+    .feature-wide img {
+        object-position: 40% center;
+    }
+
+    .policy-wide .policy-card-content {
+        width: 100%;
+    }
+
+    .policy-news-images {
+        width: 100%;
+        height: auto;
+        padding: 1rem;
     }
 
     .feature-wide::after {
@@ -905,6 +927,10 @@ a:focus-visible .more-arrow,
 
     .feature-card-content {
         padding: 1.25rem;
+    }
+
+    .feature-card-content p {
+        font-size: 1rem;
     }
 
     .feature-wide .feature-more {
@@ -922,6 +948,16 @@ a:focus-visible .more-arrow,
 
     .industry-focus-copy {
         width: 52%;
+    }
+
+    .industry-focus .industry-label {
+        margin-left: 48%;
+        padding-inline: 1rem;
+        font-size: 0.8rem;
+    }
+
+    .industry-focus-copy p {
+        font-size: 1rem;
     }
 
     .industry-focus-copy h3,

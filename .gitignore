@@ -6,3 +6,5 @@ dist/
 contents/_raw/
 backup_*/
 tmp/
+contents_ref/
+.claude/
