@@ -312,6 +312,56 @@
     background: #3da01c;
 }
 
+.sub05-more-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.25rem 1rem;
+    padding: 0.1rem 1rem;
+    background: var(--cat-color);
+    color: #fff;
+}
+
+.sub05-more-head h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.sub05-more-head span {
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.sub05-table {
+    width: 100%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.sub05-table th,
+.sub05-table td {
+    padding: 0.6rem 1rem;
+    border: 1px solid #d4d4d4;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.sub05-table thead th {
+    background: color-mix(in srgb, var(--cat-color) 12%, #fff);
+    color: var(--cat-color);
+    font-weight: 700;
+    text-align: center;
+}
+
+.sub05-table td:first-child {
+    width: 30%;
+    font-weight: 700;
+}
+
 /* Sub-06 company focus interview */
 .article-hero--sub-06 {
     background: url("../contents/sub6-hero.jpg") center / cover no-repeat;
@@ -1890,6 +1940,15 @@ body:has(.storm-article) main {
         min-width: 0;
         width: 100%;
         font-size: 1.05rem;
+    }
+
+    .sub05-table {
+        font-size: 0.85rem;
+    }
+
+    .sub05-table th,
+    .sub05-table td {
+        padding: 0.45rem 0.6rem;
     }
 
     .article-hero--sub-06 {
