@@ -271,8 +271,6 @@ document.addEventListener("DOMContentLoaded", () => {
         suppressClick = false;
         dragStart = event.clientX;
         dragDistance = 0;
-        viewport.classList.add("is-dragging");
-        viewport.setPointerCapture(event.pointerId);
         layout.style.transition = "none";
     });
 
@@ -283,6 +281,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const rootSize = Number.parseFloat(getComputedStyle(document.documentElement).fontSize);
         dragDistance = event.clientX - dragStart;
+
+        // 포인터 캡처는 실제 드래그로 판정된 뒤에만 잡는다.
+        // pointerdown에서 바로 잡으면 click이 viewport로 리타게팅되어 카드 링크가 동작하지 않는다.
+        if (!viewport.hasPointerCapture(event.pointerId) && Math.abs(dragDistance) > 5) {
+            viewport.setPointerCapture(event.pointerId);
+            viewport.classList.add("is-dragging");
+        }
+
         layout.style.transform = `translateX(${dragDistance / rootSize}rem)`;
     });
 

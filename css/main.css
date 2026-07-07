@@ -433,7 +433,7 @@ a:focus-visible .more-arrow,
 
 .industry-product h3 {
     margin-top: 1rem;
-    font-size: clamp(1.75rem, 2.5vw, 2.1rem);
+    font-size: clamp(1.5rem, 2.2vw, 1.8rem);
     line-height: 1.2;
     letter-spacing: -0.08rem;
 }

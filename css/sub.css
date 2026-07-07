@@ -362,6 +362,24 @@
     font-weight: 700;
 }
 
+.sub05-table--cols3 td:first-child {
+    width: 22%;
+}
+
+.sub05-table--cols3 td:last-child {
+    width: 33%;
+    word-break: break-all;
+}
+
+.sub04-cta a {
+    background: #5b6ce4;
+}
+
+.sub04-cta a:hover,
+.sub04-cta a:focus-visible {
+    background: #4a5ad0;
+}
+
 /* Sub-06 company focus interview */
 .article-hero--sub-06 {
     background: url("../contents/sub6-hero.jpg") center / cover no-repeat;
@@ -1496,6 +1514,10 @@
 
 .sub04-product {
     margin-top: 1rem;
+}
+
+.sub04-product + .sub04-product {
+    margin-top: 4.5rem;
 }
 
 .sub04-product h3 {
