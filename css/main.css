@@ -64,9 +64,11 @@
     animation: hero-title-weight 4s infinite both;
     animation-delay: calc((var(--char-index) + 1) * 0.15s);
     will-change: font-weight, transform;
+    font-family: "Pretendard Variable";
 }
 
 @keyframes hero-title-weight {
+
     0%,
     100% {
         font-weight: 45;
@@ -168,7 +170,7 @@
     background: #1d3345;
 }
 
-.feature-card > a {
+.feature-card>a {
     position: absolute;
     inset: 0;
 }
@@ -243,7 +245,7 @@
     font-weight: 700;
 }
 
-.feature-more > span {
+.feature-more>span {
     text-decoration: underline;
     text-decoration-thickness: 0.125rem;
     text-underline-offset: 0.375rem;
@@ -327,8 +329,8 @@ a:focus-visible .more-arrow,
     border-radius: 0.75rem;
 }
 
-.industry-focus > a,
-.industry-product > a {
+.industry-focus>a,
+.industry-product>a {
     position: absolute;
     inset: 0;
 }
@@ -387,7 +389,7 @@ a:focus-visible .more-arrow,
     font-weight: 700;
 }
 
-.industry-more > span:first-child {
+.industry-more>span:first-child {
     text-decoration: underline;
     text-decoration-thickness: 0.125rem;
     text-underline-offset: 0.375rem;
@@ -415,7 +417,7 @@ a:focus-visible .more-arrow,
     border-radius: 0.75rem;
 }
 
-.industry-product > a {
+.industry-product>a {
     display: grid;
     grid-template-columns: 50% 50%;
 }
@@ -476,7 +478,7 @@ a:focus-visible .more-arrow,
     border-radius: 0.75rem;
 }
 
-.policy-card > a {
+.policy-card>a {
     position: absolute;
     inset: 0;
 }
@@ -571,7 +573,7 @@ a:focus-visible .more-arrow,
     gap: 0.75rem;
 }
 
-.policy-news-images > span {
+.policy-news-images>span {
     aspect-ratio: 20 / 13;
     overflow: hidden;
 }
@@ -636,7 +638,7 @@ a:focus-visible .more-arrow,
     transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.video-card > a {
+.video-card>a {
     position: absolute;
     inset: 0;
 }
@@ -761,7 +763,7 @@ a:focus-visible .more-arrow,
     box-shadow: 0 0.75rem 1.75rem rgba(0, 0, 0, 0.12);
 }
 
-.cardnews-card > a {
+.cardnews-card>a {
     display: block;
     width: 100%;
     height: 100%;
@@ -886,7 +888,7 @@ a:focus-visible .more-arrow,
         grid-column: auto;
     }
 
-    .policy-layout > .layout-box,
+    .policy-layout>.layout-box,
     .policy-layout .policy-wide {
         aspect-ratio: 16 / 10;
     }

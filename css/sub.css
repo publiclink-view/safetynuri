@@ -24,7 +24,7 @@
     line-height: var(--article-body-line-height);
 }
 
-.article-body p + p {
+.article-body p+p {
     margin-top: var(--article-paragraph-gap);
 }
 
@@ -179,7 +179,7 @@
     line-height: 1;
 }
 
-.sub03-section > p strong:first-child {
+.sub03-section>p strong:first-child {
     color: #16232e;
 }
 
@@ -192,8 +192,8 @@
     height: auto;
 }
 
-.sub03-figure--framed > img,
-.sub03-figure--framed > .sub03-figure-row {
+.sub03-figure--framed>img,
+.sub03-figure--framed>.sub03-figure-row {
     padding: 1rem;
     border: 0.05rem solid #c8c9ca;
 }
@@ -403,6 +403,10 @@
     text-shadow: none;
 }
 
+.article-hero--sub-06 .update-time {
+    color: #111111;
+}
+
 .sub06-article {
     width: min(50rem, calc(100% - 3rem));
     margin-inline: auto;
@@ -579,6 +583,11 @@
     line-height: 1.5;
 }
 
+.sub08-time {
+    font-size: 1rem;
+    color: var(--sub08-blue-text);
+}
+
 .sub08-lead {
     margin-top: 1.75rem;
 }
@@ -609,7 +618,7 @@
     width: 55%;
 }
 
-.sub08-row--single + .sub08-chart {
+.sub08-row--single+.sub08-chart {
     margin-top: -6rem;
 }
 
@@ -710,7 +719,7 @@
     width: 80%;
 }
 
-.sub08-insight > p {
+.sub08-insight>p {
     width: 70%;
 }
 
@@ -801,7 +810,7 @@
     align-items: start;
 }
 
-.sub07-signal + .sub07-signal {
+.sub07-signal+.sub07-signal {
     margin-top: -6rem;
 }
 
@@ -1012,12 +1021,12 @@
     line-height: 1.4;
 }
 
-.sub07-copy > p {
+.sub07-copy>p {
     font-size: 0.95rem;
     line-height: 1.75;
 }
 
-.sub07-copy > p + p {
+.sub07-copy>p+p {
     margin-top: 0.9rem;
 }
 
@@ -1377,9 +1386,13 @@
     line-height: 1.35;
 }
 
-.sub10-hero-card > p {
+.sub10-hero-card>p {
     margin-top: 0.8rem;
     font-size: 1.05rem;
+}
+
+.sub10-hero-card span {
+    font-size: 0.8rem;
 }
 
 .sub10-article {
@@ -1451,7 +1464,7 @@
     background: #f5f5f5;
 }
 
-.sub10-band + .sub10-news-list {
+.sub10-band+.sub10-news-list {
     padding-top: 3.5rem;
 }
 
@@ -1516,7 +1529,7 @@
     margin-top: 1rem;
 }
 
-.sub04-product + .sub04-product {
+.sub04-product+.sub04-product {
     margin-top: 4.5rem;
 }
 
@@ -1733,10 +1746,21 @@
     --accent: var(--storm-red);
 }
 
-#stage-2 { --previous-accent: var(--storm-blue); }
-#stage-3 { --previous-accent: var(--storm-orange); }
-#stage-4 { --previous-accent: var(--storm-red); }
-#stage-5 { --previous-accent: var(--storm-orange); }
+#stage-2 {
+    --previous-accent: var(--storm-blue);
+}
+
+#stage-3 {
+    --previous-accent: var(--storm-orange);
+}
+
+#stage-4 {
+    --previous-accent: var(--storm-red);
+}
+
+#stage-5 {
+    --previous-accent: var(--storm-orange);
+}
 
 .scenario-stage h2 {
     margin: 0;
@@ -2071,7 +2095,7 @@ body:has(.storm-article) main {
         gap: 2rem;
     }
 
-    .sub07-signal + .sub07-signal {
+    .sub07-signal+.sub07-signal {
         margin-top: 5rem;
     }
 
@@ -2169,7 +2193,7 @@ body:has(.storm-article) main {
         width: 100%;
     }
 
-    .sub08-row--single + .sub08-chart {
+    .sub08-row--single+.sub08-chart {
         margin-top: 2rem;
     }
 
@@ -2265,7 +2289,7 @@ body:has(.storm-article) main {
         letter-spacing: -0.05rem;
     }
 
-    .sub10-hero-card > p {
+    .sub10-hero-card>p {
         font-size: 0.9rem;
     }
 
@@ -2304,7 +2328,7 @@ body:has(.storm-article) main {
         padding-block: 2.5rem 0;
     }
 
-    .sub10-band + .sub10-news-list {
+    .sub10-band+.sub10-news-list {
         padding-top: 2.5rem;
     }
 
@@ -2465,7 +2489,7 @@ body:has(.storm-article) main {
     position: relative;
 }
 
-.solution-item + .solution-item {
+.solution-item+.solution-item {
     margin-top: 8rem;
 }
 
@@ -2533,7 +2557,7 @@ body:has(.storm-article) main {
     white-space: nowrap;
 }
 
-.solution-copy > p {
+.solution-copy>p {
     color: #4c5357;
     font-size: 0.93rem;
     line-height: 1.9;
@@ -2662,7 +2686,7 @@ body:has(.storm-article) main {
         width: calc(100% - 2rem);
     }
 
-    .solution-item + .solution-item {
+    .solution-item+.solution-item {
         margin-top: 8rem;
     }
 
@@ -2688,7 +2712,7 @@ body:has(.storm-article) main {
         display: inline-block;
     }
 
-    .solution-copy > p {
+    .solution-copy>p {
         font-size: var(--article-body-size);
         line-height: var(--article-body-line-height);
     }
