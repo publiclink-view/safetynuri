@@ -1,19 +1,24 @@
 @charset "utf-8";
 
 /* Header */
+:root {
+    --brand-color: #512b9b;
+    --header-height: clamp(4.375rem, 6vw, 7.1875rem);
+}
+
 .site-header {
     position: sticky;
     top: 0;
     z-index: 100;
     color: #fff;
-    background: #293a51;
+    background: var(--brand-color);
 }
 
 .header-inner {
-    height: 4.375rem;
+    height: var(--header-height);
     padding-inline: 1.875rem;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    grid-template-columns: minmax(0, 36fr) auto minmax(0, 22fr);
     align-items: center;
 }
 
@@ -21,22 +26,28 @@
     min-width: 0;
     display: flex;
     align-items: flex-end;
-    gap: 0.75rem;
+    gap: clamp(0.5rem, 1.45vw, 1.75rem);
     white-space: nowrap;
 }
 
 .site-brand img {
-    width: 8.125rem;
+    width: clamp(8.125rem, 8.75vw, 10.5rem);
 }
 
 .brand-description,
 .brand-issue {
-    font-size: 0.8125rem;
+    font-size: clamp(0.8125rem, 1.15vw, 1.375rem);
+    font-weight: 700;
     line-height: 1;
 }
 
 .brand-issue {
-    font-size: 1.0625rem;
+    font-size: clamp(1.0625rem, 1.25vw, 1.5rem);
+}
+
+.brand-issue span {
+    font-size: 1.5em;
+    font-weight: 300;
 }
 
 .main-navigation {
@@ -44,7 +55,7 @@
 }
 
 .main-menu {
-    width: clamp(23.75rem, 34vw, 30rem);
+    width: clamp(23.75rem, 41.7vw, 50rem);
     height: 100%;
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -57,14 +68,14 @@
 }
 
 .main-menu>li>a {
-    font-size: 1.125rem;
+    font-size: clamp(1.125rem, 1.3vw, 1.5625rem);
     font-weight: 500;
     transition: color 0.2s ease;
 }
 
 .main-menu>li>a:hover,
 .main-menu>li>a:focus-visible {
-    color: #8fc7ff;
+    color: #cdbcff;
 }
 
 .mega-menu {
@@ -73,7 +84,7 @@
     top: 100%;
     left: 0;
     color: #fff;
-    background: #293a51;
+    background: var(--brand-color);
     border-top: 0.0625rem solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.16);
     opacity: 0;
@@ -119,13 +130,13 @@
 
 .sub-menu a:hover,
 .sub-menu a:focus-visible {
-    color: #8fc7ff;
+    color: #cdbcff;
     transform: translateX(0.1875rem);
 }
 
 .mega-menu-title:hover,
 .mega-menu-title:focus-visible {
-    color: #8fc7ff;
+    color: #cdbcff;
 }
 
 .main-navigation:hover .mega-menu,
@@ -150,13 +161,13 @@
     align-items: center;
     justify-content: center;
     gap: 0.375rem;
-    color: #84929a;
-    font-size: 0.875rem;
-    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: clamp(0.875rem, 1.35vw, 1.625rem);
+    font-weight: 500;
     line-height: 1.2;
     white-space: nowrap;
     background: transparent;
-    border: 0.0625rem solid #84929a;
+    border: 0;
     border-radius: 62.4375rem;
     transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
@@ -164,7 +175,6 @@
 .previous-issue-link:hover,
 .previous-issue-link:focus-visible {
     color: #fff;
-    background: #84929a;
     transform: translateY(-0.125rem);
 }
 
@@ -173,7 +183,7 @@
     width: 1.375rem;
     height: 1.375rem;
     position: relative;
-    border: 0.1875rem solid #84929a;
+    border: 0.1875rem solid rgba(255, 255, 255, 0.6);
     border-radius: 50%;
 }
 
@@ -184,7 +194,7 @@
     position: absolute;
     right: -0.4375rem;
     bottom: -0.1875rem;
-    background: #84929a;
+    background: rgba(255, 255, 255, 0.6);
     transform: rotate(45deg);
 }
 
@@ -196,7 +206,7 @@
 
 .menu-button i {
     height: 0.1875rem;
-    background: #84929a;
+    background: rgba(255, 255, 255, 0.6);
     transition: opacity 0.2s ease, transform 0.25s ease;
 }
 
@@ -251,7 +261,7 @@
         top: 100%;
         left: 0;
         overflow-y: auto;
-        background: #293a51;
+        background: var(--brand-color);
         border-top: 0.0625rem solid rgba(255, 255, 255, 0.15);
     }
 
@@ -324,7 +334,7 @@
 /* Footer */
 .site-footer {
     color: #fff;
-    background: #476ca1;
+    background: var(--brand-color);
 }
 
 .footer-inner {
@@ -341,26 +351,27 @@
 }
 
 .footer-top {
-    padding-block: 3.5rem;
+    padding-block: clamp(2.25rem, 2.45vw, 2.95rem);
 }
 
 .footer-message span,
 .footer-message strong {
     display: block;
     color: #fff;
-    font-size: clamp(1.375rem, 2vw, 1.875rem);
-    font-weight: 600;
-    line-height: 1.45;
+    font-size: clamp(1.375rem, 1.77vw, 2.125rem);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.03em;
 }
 
 .social-links {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: clamp(0.5rem, 1.5vw, 1.8rem);
 }
 
 .social-links a {
-    width: 3.5rem;
+    width: clamp(2.625rem, 3.4vw, 4.0625rem);
     aspect-ratio: 1;
     background-repeat: no-repeat;
     background-position: center;
@@ -396,8 +407,9 @@
 }
 
 .footer-bottom {
-    padding-block: 2rem;
-    border-top: 0.0625rem solid rgba(255, 255, 255, 0.22);
+    padding-block: clamp(1.5rem, 1.7vw, 2.1rem) clamp(2rem, 2.3vw, 2.75rem);
+    align-items: flex-start;
+    border-top: 0.0625rem solid rgba(255, 255, 255, 0.4);
 }
 
 .footer-info {
@@ -405,8 +417,8 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 0.75rem;
-    color: rgba(255, 255, 255, 0.72);
-    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(0.875rem, 1.1vw, 1.3125rem);
     line-height: 1.8;
     white-space: nowrap;
 }
@@ -429,7 +441,7 @@
 }
 
 .mois-logo {
-    width: 11.25rem;
+    width: clamp(8.75rem, 10.7vw, 12.8rem);
     flex: 0 0 auto;
 }
 

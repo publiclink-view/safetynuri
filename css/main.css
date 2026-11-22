@@ -1,17 +1,23 @@
 @charset "utf-8";
 
+/* 메인 페이지 전용 헤더/푸터 색상 */
+.is-main {
+    --brand-color: #5d30d9;
+}
+
 .main-inner {
-    width: min(75rem, calc(100% - 3rem));
+    width: min(99rem, calc(100% - 3rem));
     margin-inline: auto;
 }
 
 .main-section {
-    padding-block: 4rem 6.5rem;
+    padding-block: 4rem 6rem;
 }
 
 .section-title {
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    font-size: clamp(1.5rem, 1.8vw, 2.125rem);
+    font-weight: 800;
     line-height: 1.2;
 }
 
@@ -29,32 +35,36 @@
 
 /* Hero */
 .main-hero {
-    padding-block: 5rem 7rem;
+    padding-block: clamp(5rem, 12.5vw, 15rem) clamp(4rem, 5.6vw, 6.75rem);
 }
 
 .hero-layout {
-    aspect-ratio: 1200 / 605;
+    aspect-ratio: 1.985 / 1;
     position: relative;
     overflow: hidden;
     color: #fff;
-    background:
-        linear-gradient(90deg, rgba(0, 12, 22, 0.72) 0%, rgba(0, 20, 34, 0.28) 58%, rgba(0, 20, 34, 0.08) 100%),
-        url("../images/hero-temp.jpg") center 52% / cover no-repeat;
-    border-radius: 1.125rem;
+    background: #1b0f45;
+    border-radius: 2.8rem;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .hero-content {
     position: absolute;
     top: 50%;
-    left: clamp(4rem, 8vw, 7rem);
+    left: 10.7%;
     z-index: 1;
     transform: translateY(-50%);
 }
 
 .hero-content h1 {
-    font-size: clamp(3.25rem, 4.5vw, 4.5rem);
+    font-size: clamp(2.5rem, 4.2vw, 5rem);
     font-weight: 700;
-    line-height: 1.32;
+    line-height: 1.25;
     letter-spacing: -0.04em;
     white-space: nowrap;
 }
@@ -82,10 +92,10 @@
 }
 
 .hero-content p {
-    margin-top: 1.5rem;
-    font-size: clamp(1.0625rem, 1.5vw, 1.375rem);
+    margin-top: 1.75rem;
+    font-size: clamp(1.0625rem, 1.8vw, 2.125rem);
     font-weight: 600;
-    line-height: 1.75;
+    line-height: 1.6;
 }
 
 .hero-arrow {
@@ -152,7 +162,8 @@
 
 /* Feature */
 .feature-section {
-    background: #e9f6fd;
+    padding-block: 2.25rem 7.5rem;
+    background: #e8f4fb;
 }
 
 .feature-layout {
@@ -162,11 +173,11 @@
 }
 
 .feature-card {
-    aspect-ratio: 1.1 / 1;
+    aspect-ratio: 1.09 / 1;
     position: relative;
     overflow: hidden;
     color: #fff;
-    border-radius: 0.75rem;
+    border-radius: 1.5rem;
     background: #1d3345;
 }
 
@@ -187,75 +198,83 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(5, 16, 27, 0.16) 20%, rgba(5, 16, 27, 0.86) 100%);
+    background: linear-gradient(180deg, rgba(5, 16, 27, 0.22) 0%, rgba(5, 16, 27, 0) 45%);
+}
+
+.feature-card-solution::after {
+    background: linear-gradient(180deg, rgba(32, 100, 210, 0.95) 0%, rgba(60, 130, 224, 0.62) 34%, rgba(120, 180, 240, 0) 62%);
 }
 
 .feature-card-content {
     position: absolute;
     inset: 0;
     z-index: 1;
-    padding: 1.5rem;
+    padding: clamp(1.25rem, 1.7vw, 2rem);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
 .feature-label {
-    padding: 0.4375rem 1.5rem;
-    font-size: 1rem;
+    padding: 0.5rem 1.875rem;
+    font-size: clamp(0.9375rem, 1.15vw, 1.375rem);
     font-weight: 700;
-    line-height: 1;
-    background: rgba(0, 0, 0, 0.78);
+    line-height: 1.2;
+    background: #000;
     border-radius: 62.4375rem;
 }
 
 .feature-card h3 {
-    margin-top: 0.625rem;
-    font-size: clamp(1.5625rem, 2.4vw, 2.25rem);
+    margin-top: 1.1rem;
+    font-size: clamp(1.5625rem, 2.2vw, 2.625rem);
+    font-weight: 800;
     line-height: 1.35;
     letter-spacing: -0.04em;
 }
 
 .feature-keywords {
-    margin-top: 0.625rem;
+    margin-top: 1.25rem;
 }
 
 .feature-keywords span {
     display: inline-block;
-    margin: 0 0.4375rem 0.4375rem 0;
-    padding: 0.3125rem 1rem;
-    font-size: 0.8rem;
-    line-height: 1;
-    border: 0.08rem solid rgba(255, 255, 255, 1);
+    margin: 0 0.5rem 0.4rem 0;
+    padding: 0.4rem 1.2rem;
+    font-size: clamp(0.75rem, 0.9vw, 1.0625rem);
+    font-weight: 700;
+    line-height: 1.1;
+    border: 0.0625rem solid rgba(255, 255, 255, 1);
     border-radius: 62.4375rem;
 }
 
 .feature-card-content p {
     margin-top: 0.75rem;
-    color: #000;
-    font-size: 1.8rem;
-    line-height: 1.2;
+    color: #fff;
+    font-size: clamp(1.125rem, 1.65vw, 2rem);
+    line-height: 1.3;
     font-weight: 600;
-    letter-spacing: -0.1rem;
+    letter-spacing: -0.04em;
 }
 
 .feature-more {
-    margin: auto 0 0 auto;
-    font-size: 1.25rem;
+    margin: auto 3rem 1.25rem auto;
+    font-family: Pretendard, "Pretendard Variable", sans-serif;
+    font-size: clamp(1.125rem, 1.65vw, 2rem);
     font-weight: 700;
+    letter-spacing: -0.06em;
 }
 
 .feature-more>span {
     text-decoration: underline;
     text-decoration-thickness: 0.125rem;
-    text-underline-offset: 0.375rem;
+    text-underline-offset: 0.4rem;
 }
 
 .feature-more .feature-more-arrow {
-    margin-left: 0.375rem;
+    margin-left: 0.75rem;
     position: relative;
-    top: 0.375rem;
-    font-size: 1.75rem;
+    top: 0.4rem;
+    font-size: 1.1em;
     line-height: 1;
     text-decoration: none;
 }
@@ -283,7 +302,7 @@ a:focus-visible .more-arrow,
 
 .feature-layout .feature-wide {
     grid-column: 1 / -1;
-    aspect-ratio: 2.3 / 1;
+    aspect-ratio: 2.26 / 1;
 }
 
 .feature-wide img {
@@ -291,7 +310,7 @@ a:focus-visible .more-arrow,
 }
 
 .feature-wide::after {
-    background: linear-gradient(0deg, rgba(16, 172, 146, 0.96) 0%, rgba(21, 177, 151, 0.78) 15%, rgba(21, 177, 151, 0.18) 40%, rgba(21, 177, 151, 0) 78%);
+    background: linear-gradient(0deg, rgba(61, 28, 26, 1) 0%, rgba(61, 28, 26, 0.92) 12%, rgba(61, 28, 26, 0.5) 24%, rgba(61, 28, 26, 0) 45%);
 }
 
 .feature-wide .feature-card-content {
@@ -300,33 +319,39 @@ a:focus-visible .more-arrow,
 
 .feature-wide h3 {
     margin-top: auto;
-    font-size: clamp(1.75rem, 2.7vw, 2.5rem);
+    line-height: 1.4;
 }
 
 .feature-wide .feature-more {
     position: absolute;
-    right: 1.5rem;
-    bottom: 1.5rem;
+    right: 3rem;
+    bottom: 2rem;
     margin: 0;
 }
 
 /* Industry */
 .industry-section {
+    padding-block: clamp(3rem, 3.9vw, 4.0rem) clamp(4rem, 6.7vw, 8rem);
     color: #fff;
-    background: #6069d2;
+    background: #7d5ae1;
+}
+
+.industry-section .section-title {
+    margin-bottom: clamp(2.5rem, 3.4vw, 4rem);
 }
 
 .industry-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-    gap: 1.5rem;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+    gap: 2rem;
 }
 
 .industry-focus {
-    aspect-ratio: 1.1 / 1;
+    aspect-ratio: 1.115 / 1;
     position: relative;
     overflow: hidden;
-    border-radius: 0.75rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.14);
 }
 
 .industry-focus>a,
@@ -345,68 +370,76 @@ a:focus-visible .more-arrow,
 .industry-focus-content {
     position: absolute;
     inset: 0;
-    padding: 1.5rem;
+    padding: clamp(1.25rem, 1.7vw, 2rem);
 }
 
 .industry-label {
     display: inline-block;
-    padding: 0.4375rem 1.5rem;
+    padding: 0.5rem 1.875rem;
     color: #fff;
-    font-size: 1rem;
+    font-size: clamp(0.9375rem, 1.15vw, 1.375rem);
     font-weight: 700;
-    line-height: 1;
-    background: #111;
+    line-height: 1.2;
+    background: #000;
     border-radius: 62.4375rem;
 }
 
+.industry-focus .industry-more {
+    color: #111;
+}
+
 .industry-focus-copy {
-    width: 55%;
-    margin: 1rem 0 0 auto;
+    width: 52%;
+    margin: 0.75rem 0 0 auto;
     color: #111;
 }
 
 .industry-focus-copy h3 {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    line-height: 1.2;
-    letter-spacing: -0.08rem;
+    font-size: clamp(1.75rem, 2.4vw, 2.875rem);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.05em;
 }
 
 .industry-focus-copy p {
-    margin-top: 1rem;
-    font-size: 1.5rem;
+    margin-top: 3rem;
+    font-size: clamp(1.125rem, 1.65vw, 2rem);
     font-weight: 600;
-    line-height: 1.3;
+    line-height: 1.45;
+    letter-spacing: -0.04em;
 }
 
 .industry-more {
     position: absolute;
-    right: 1.5rem;
-    bottom: 1.5rem;
+    right: 3.5rem;
+    bottom: 2.5rem;
     display: flex;
     align-items: flex-start;
     color: inherit;
-    font-size: 1.1rem;
+    font-family: Pretendard, "Pretendard Variable", sans-serif;
+    font-size: clamp(1.125rem, 1.65vw, 2rem);
     font-weight: 700;
+    letter-spacing: -0.06em;
 }
 
 .industry-more>span:first-child {
     text-decoration: underline;
     text-decoration-thickness: 0.125rem;
-    text-underline-offset: 0.375rem;
+    text-underline-offset: 0.4rem;
 }
 
 .industry-more-arrow {
-    margin-left: 0.375rem;
+    margin-left: 0.75rem;
     position: relative;
-    top: 0.25rem;
-    font-size: 1.5rem;
+    top: 0.3rem;
+    font-size: 1.1em;
     line-height: 1;
 }
 
 .industry-side {
     display: grid;
     grid-template-rows: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .industry-product {
@@ -414,12 +447,13 @@ a:focus-visible .more-arrow,
     overflow: hidden;
     color: #111;
     background: #fff;
-    border-radius: 0.75rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.14);
 }
 
 .industry-product>a {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 46% 54%;
 }
 
 .industry-product img {
@@ -430,26 +464,22 @@ a:focus-visible .more-arrow,
 }
 
 .industry-product-content {
-    padding: 1.25rem;
+    padding: clamp(1.25rem, 1.7vw, 2rem) clamp(1.25rem, 2.2vw, 2.6rem);
     position: relative;
 }
 
 .industry-product h3 {
-    margin-top: 1rem;
-    font-size: clamp(1.5rem, 2.2vw, 1.8rem);
-    line-height: 1.2;
-    letter-spacing: -0.08rem;
-}
-
-.industry-product .industry-label {
-    padding-inline: 1rem;
-    font-size: 0.8rem;
+    margin-top: 0.9rem;
+    font-size: clamp(1.5rem, 2.1vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.45;
+    letter-spacing: -0.05em;
 }
 
 .industry-product .industry-more {
-    right: 1.25rem;
-    bottom: 1.25rem;
-    font-size: 1rem;
+    right: 3.5rem;
+    bottom: 2.25rem;
+    font-size: clamp(1rem, 1.45vw, 1.75rem);
 }
 
 .industry-focus:hover img,
@@ -460,22 +490,28 @@ a:focus-visible .more-arrow,
 }
 
 /* Policy */
+.policy-section {
+    padding-block: clamp(2.5rem, 2.9vw, 3.5rem) clamp(4rem, 5vw, 6rem);
+}
+
 .policy-section .section-title {
-    color: #4b50d0;
+    margin-bottom: clamp(2.5rem, 3.4vw, 4.1rem);
+    color: #63beff;
 }
 
 .policy-layout {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 2rem;
 }
 
 .policy-card {
-    aspect-ratio: 0.78 / 1;
+    grid-column: span 2;
+    aspect-ratio: 0.72 / 1;
     position: relative;
     overflow: hidden;
-    color: #111;
-    border-radius: 0.75rem;
+    color: #fff;
+    border-radius: 1.5rem;
 }
 
 .policy-card>a {
@@ -486,25 +522,26 @@ a:focus-visible .more-arrow,
 .policy-card-content {
     position: relative;
     z-index: 1;
-    padding: 1.5rem;
+    padding: clamp(1.25rem, 1.7vw, 2rem);
 }
 
 .policy-label {
     display: inline-block;
-    padding: 0.4375rem 1.25rem;
+    padding: 0.5rem 1.875rem;
     color: #fff;
-    font-size: 0.9rem;
+    font-size: clamp(0.9375rem, 1.15vw, 1.375rem);
     font-weight: 700;
-    line-height: 1;
-    background: #111;
+    line-height: 1.2;
+    background: #000;
     border-radius: 62.4375rem;
 }
 
 .policy-card h3 {
     margin-top: 1rem;
-    font-size: clamp(1.6rem, 2.2vw, 2.1rem);
-    line-height: 1.18;
-    letter-spacing: -0.09rem;
+    font-size: clamp(1.625rem, 2.4vw, 2.875rem);
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.04em;
 }
 
 .policy-card img {
@@ -516,8 +553,25 @@ a:focus-visible .more-arrow,
     transition: transform 0.6s ease;
 }
 
+.policy-card-sketch {
+    background: #3a2a8f;
+}
+
+.policy-card-sketch img {
+    height: 100%;
+    object-position: center bottom;
+}
+
+.policy-card-sketch::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(93, 48, 217, 0.9) 0%, rgba(93, 48, 217, 0.68) 38%, rgba(60, 60, 190, 0.3) 100%);
+}
+
 .policy-card-signal {
-    background: #ffd75b;
+    background: #0560fd;
 }
 
 .policy-card-signal img {
@@ -525,8 +579,7 @@ a:focus-visible .more-arrow,
 }
 
 .policy-card-info {
-    color: #fff;
-    background: #2daf94;
+    background: #5d30d9;
 }
 
 .policy-card-info img {
@@ -534,55 +587,33 @@ a:focus-visible .more-arrow,
     object-position: center bottom;
 }
 
-.policy-card-catchup {
-    color: #fff;
-    background: #063d71;
-}
-
-.policy-card-catchup::after {
-    content: "";
-    position: absolute;
-    inset: 34% 0 0;
-    z-index: 0;
-    pointer-events: none;
-    background: linear-gradient(180deg, #063d71 0%, rgba(6, 61, 113, 0.12) 55%, rgba(6, 61, 113, 0) 100%);
-}
-
 .policy-layout .policy-wide {
-    grid-column: 1 / -1;
-    aspect-ratio: 6 / 1;
-    background: #aaa;
+    grid-column: span 3;
+    aspect-ratio: 1.95 / 1;
+    color: #111;
+}
+
+.policy-card-catchup {
+    background: #63beff;
+}
+
+.policy-card-news {
+    background: #9e9e9e;
 }
 
 .policy-wide .policy-card-content {
-    width: 48%;
-    z-index: 2;
+    padding-bottom: 0;
 }
 
-.policy-news-images {
-    width: 62%;
-    height: 100%;
-    padding: 1.25rem;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: center;
-    gap: 0.75rem;
+.policy-wide .policy-label {
+    color: #fff;
 }
 
-.policy-news-images>span {
-    aspect-ratio: 20 / 13;
-    overflow: hidden;
-}
-
-.policy-card .policy-news-images img {
-    width: 100%;
-    height: 100%;
-    position: static;
-    object-fit: cover;
+.policy-wide img {
+    width: 39.5%;
+    aspect-ratio: 3 / 2;
+    right: 2.125rem;
+    bottom: 2.125rem;
 }
 
 .policy-card:hover img,
@@ -592,17 +623,21 @@ a:focus-visible .more-arrow,
 
 /* Video */
 .video-section {
+    padding-block: clamp(2rem, 2.25vw, 2.7rem) clamp(1.5rem, 1.6vw, 2rem);
     overflow: hidden;
-    background: #efefef;
+    background: #eaebeb;
 }
 
 .section-title-pill {
-    width: fit-content;
-    margin-bottom: 3rem;
+    width: min(20rem, 100%);
+    margin-bottom: clamp(2rem, 3.2vw, 3.8rem);
     margin-inline: auto;
-    padding: 0.5rem 2.125rem;
+    padding: 0.4rem 1rem;
     color: #fff;
-    font-size: 1.0625rem;
+    font-size: clamp(1rem, 1.1vw, 1.3125rem);
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
     background: #111;
     border-radius: 62.4375rem;
 }
@@ -625,16 +660,16 @@ a:focus-visible .more-arrow,
 }
 
 .video-card {
-    flex: 0 0 58%;
+    flex: 0 0 54%;
     aspect-ratio: 16 / 9;
-    margin-inline: -3.5rem;
+    margin-inline: -6.25rem;
     position: relative;
     overflow: hidden;
     z-index: 0;
-    opacity: 0.5;
-    border-radius: 0.75rem;
+    opacity: 0.9;
+    border-radius: 1.75rem;
     box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.12);
-    transform: scale(0.62);
+    transform: scale(0.49);
     transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -691,14 +726,14 @@ a:focus-visible .more-arrow,
 }
 
 .video-pagination {
-    margin-top: 2rem;
+    margin-top: clamp(1.5rem, 3.8vw, 4.5rem);
     display: flex;
     justify-content: center;
-    gap: 0.75rem;
+    gap: clamp(0.75rem, 1.8vw, 2.125rem);
 }
 
 .video-pagination button {
-    width: 0.75rem;
+    width: clamp(0.75rem, 1.3vw, 1.5625rem);
     aspect-ratio: 1;
     padding: 0;
     background: #aaa;
@@ -711,6 +746,7 @@ a:focus-visible .more-arrow,
 
 /* Card news */
 .cardnews-section {
+    padding-block: clamp(3rem, 3.6vw, 4.3rem) clamp(2rem, 2.5vw, 3rem);
     background: #fff;
 }
 
@@ -723,18 +759,23 @@ a:focus-visible .more-arrow,
     width: 100%;
     height: 0.0625rem;
     position: absolute;
-    top: 1.0625rem;
+    top: 0;
     left: 0;
-    background: #bbb;
+    background: #111;
 }
 
 .cardnews-section .section-title-pill {
+    margin-top: clamp(2rem, 2.7vw, 3.25rem);
     position: relative;
     z-index: 1;
 }
 
+.cardnews-pagination {
+    display: none;
+}
+
 .cardnews-carousel {
-    width: min(57.5rem, 100%);
+    width: min(74.5rem, calc(100% - 11rem));
     margin-inline: auto;
     position: relative;
 }
@@ -752,15 +793,15 @@ a:focus-visible .more-arrow,
 
 .cardnews-layout {
     display: flex;
-    gap: 1.5rem;
+    gap: 4.25rem;
     will-change: transform;
 }
 
 .cardnews-card {
-    flex: 0 0 calc((100% - 3rem) / 3);
+    flex: 0 0 calc((100% - 8.5rem) / 3);
     aspect-ratio: 4 / 5;
     overflow: hidden;
-    box-shadow: 0 0.75rem 1.75rem rgba(0, 0, 0, 0.12);
+    border: 0.0625rem solid #111;
 }
 
 .cardnews-card>a {
@@ -784,7 +825,7 @@ a:focus-visible .more-arrow,
 }
 
 .cardnews-arrow {
-    width: 2.5rem;
+    width: 3.4rem;
     aspect-ratio: 1;
     position: absolute;
     top: 50%;
@@ -818,6 +859,16 @@ a:focus-visible .more-arrow,
     right: -5.5rem;
 }
 
+@media (min-width: 100rem) {
+    .cardnews-arrow-prev {
+        left: -7.75rem;
+    }
+
+    .cardnews-arrow-next {
+        right: -7.75rem;
+    }
+}
+
 .cardnews-arrow-next::before {
     transform: translate(-65%, -50%) rotate(135deg);
 }
@@ -827,8 +878,16 @@ a:focus-visible .more-arrow,
         width: calc(100% - 2rem);
     }
 
-    .main-section {
-        padding-block: 3rem 4.5rem;
+    .main-section,
+    .feature-section,
+    .industry-section,
+    .policy-section {
+        padding-block: 2.5rem 3.5rem;
+    }
+
+    .section-title {
+        margin-bottom: 1.5rem;
+        font-size: 1.375rem;
     }
 
     .main-hero {
@@ -837,8 +896,11 @@ a:focus-visible .more-arrow,
 
     .hero-layout {
         aspect-ratio: 4 / 3;
-        background-position: 58% center;
-        border-radius: 0.75rem;
+        border-radius: 1rem;
+    }
+
+    .hero-image {
+        object-position: 62% center;
     }
 
     .hero-content {
@@ -878,32 +940,25 @@ a:focus-visible .more-arrow,
 
     .feature-layout,
     .industry-layout,
-    .policy-layout,
-    .cardnews-layout {
+    .policy-layout {
         grid-template-columns: 1fr;
+        gap: 1.25rem;
     }
 
     .feature-layout .feature-wide,
+    .policy-layout .policy-card,
     .policy-layout .policy-wide {
         grid-column: auto;
     }
 
-    .policy-layout>.layout-box,
-    .policy-layout .policy-wide {
-        aspect-ratio: 16 / 10;
-    }
-
-    .industry-focus {
-        aspect-ratio: 1 / 1;
-    }
-
-    .policy-layout .policy-card:not(.policy-wide) {
-        aspect-ratio: 0.85 / 1;
-    }
-
     .feature-card,
     .feature-layout .feature-wide {
-        aspect-ratio: 1 / 0.8;
+        aspect-ratio: 1 / 0.9;
+        border-radius: 1rem;
+    }
+
+    .feature-card-content {
+        padding: 1.25rem;
     }
 
     .feature-wide .feature-card-content {
@@ -915,39 +970,38 @@ a:focus-visible .more-arrow,
         object-position: 40% center;
     }
 
-    .policy-wide .policy-card-content {
-        width: 100%;
-    }
-
-    .policy-news-images {
-        width: 100%;
-        height: auto;
-        padding: 1rem;
-    }
-
     .feature-wide::after {
-        background: linear-gradient(0deg, rgba(16, 172, 146, 0.96) 0%, rgba(21, 177, 151, 0.78) 34%, rgba(21, 177, 151, 0.18) 68%, rgba(21, 177, 151, 0) 84%);
-    }
-
-    .feature-card-content {
-        padding: 1.25rem;
+        background: linear-gradient(0deg, rgba(61, 28, 26, 1) 0%, rgba(61, 28, 26, 0.9) 24%, rgba(61, 28, 26, 0.45) 48%, rgba(61, 28, 26, 0) 75%);
     }
 
     .feature-card-content p {
         font-size: 1rem;
     }
 
+    .feature-more,
+    .feature-wide .feature-more {
+        margin: auto 0 0 auto;
+    }
+
     .feature-wide .feature-more {
         right: 1.25rem;
         bottom: 1.25rem;
+        margin: 0;
+    }
+
+    .industry-focus {
+        aspect-ratio: 1 / 1;
+        border-radius: 1rem;
     }
 
     .industry-side {
         grid-template-rows: none;
+        gap: 1.25rem;
     }
 
     .industry-product {
         aspect-ratio: 16 / 9;
+        border-radius: 1rem;
     }
 
     .industry-focus-copy {
@@ -956,17 +1010,40 @@ a:focus-visible .more-arrow,
 
     .industry-focus .industry-label {
         margin-left: 48%;
-        padding-inline: 1rem;
-        font-size: 0.8rem;
     }
 
     .industry-focus-copy p {
+        margin-top: 1.25rem;
         font-size: 1rem;
     }
 
     .industry-focus-copy h3,
     .industry-product h3 {
         font-size: 1.5rem;
+    }
+
+    .industry-more,
+    .industry-product .industry-more {
+        right: 1.25rem;
+        bottom: 1.25rem;
+    }
+
+    .policy-layout .policy-card {
+        aspect-ratio: 0.85 / 1;
+        border-radius: 1rem;
+    }
+
+    .policy-layout .policy-wide {
+        aspect-ratio: 16 / 10;
+    }
+
+    .policy-wide img {
+        right: 1.25rem;
+        bottom: 1.25rem;
+    }
+
+    .video-section {
+        padding-block: 2.5rem;
     }
 
     .video-card {
@@ -977,6 +1054,10 @@ a:focus-visible .more-arrow,
 
     .video-card.is-active {
         transform: scale(1);
+    }
+
+    .cardnews-carousel {
+        width: 100%;
     }
 
     .cardnews-layout {
