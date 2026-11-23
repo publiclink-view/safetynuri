@@ -754,16 +754,6 @@ a:focus-visible .more-arrow,
     position: relative;
 }
 
-.cardnews-section .main-inner::before {
-    content: "";
-    width: 100%;
-    height: 0.0625rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #111;
-}
-
 .cardnews-section .section-title-pill {
     margin-top: clamp(2rem, 2.7vw, 3.25rem);
     position: relative;
@@ -873,6 +863,70 @@ a:focus-visible .more-arrow,
     transform: translate(-65%, -50%) rotate(135deg);
 }
 
+@media (max-width: 56.25rem) {
+    .industry-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .industry-focus {
+        aspect-ratio: 1.4 / 1;
+    }
+
+    .industry-side {
+        grid-template-rows: none;
+        gap: 1.5rem;
+    }
+
+    .industry-product {
+        aspect-ratio: 2.6 / 1;
+    }
+
+    .industry-product>a {
+        grid-template-rows: 100%;
+    }
+
+    .policy-layout .policy-wide {
+        grid-column: 1 / -1;
+        aspect-ratio: 2.4 / 1;
+    }
+}
+
+@media (max-width: 48rem) {
+    .policy-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .policy-layout .policy-card,
+    .policy-layout .policy-wide {
+        grid-column: auto;
+    }
+
+    .policy-layout .policy-card {
+        aspect-ratio: 1.5 / 1;
+    }
+
+    .policy-layout .policy-card-signal {
+        aspect-ratio: 1.03 / 1;
+    }
+
+    .policy-layout .policy-card-info {
+        aspect-ratio: 1.1 / 1;
+    }
+
+    .policy-layout .policy-wide {
+        aspect-ratio: 2.4 / 1;
+    }
+
+    .policy-wide h3 {
+        font-size: 1.75rem;
+    }
+
+    .industry-product h3 {
+        font-size: 1.625rem;
+    }
+}
+
 @media (max-width: 40rem) {
     .main-inner {
         width: calc(100% - 2rem);
@@ -966,6 +1020,14 @@ a:focus-visible .more-arrow,
         padding-bottom: 3.25rem;
     }
 
+    .feature-wide .feature-label {
+        margin-top: auto;
+    }
+
+    .feature-wide h3 {
+        margin-top: 0.9rem;
+    }
+
     .feature-wide img {
         object-position: 40% center;
     }
@@ -1017,7 +1079,14 @@ a:focus-visible .more-arrow,
         font-size: 1rem;
     }
 
-    .industry-focus-copy h3,
+    .industry-focus-copy h3 {
+        font-size: 1.5rem;
+    }
+
+    .policy-wide h3 {
+        font-size: 1.625rem;
+    }
+
     .industry-product h3 {
         font-size: 1.5rem;
     }
@@ -1026,6 +1095,33 @@ a:focus-visible .more-arrow,
     .industry-product .industry-more {
         right: 1.25rem;
         bottom: 1.25rem;
+    }
+
+    .industry-product {
+        border-radius: 0.75rem;
+    }
+
+    .industry-product>a {
+        grid-template-columns: 50% 50%;
+    }
+
+    .industry-product-content {
+        padding: 1.25rem;
+    }
+
+    .industry-product .industry-label {
+        padding-inline: 1rem;
+        font-size: 0.8rem;
+    }
+
+    .industry-product h3 {
+        margin-top: 1rem;
+        line-height: 1.2;
+        letter-spacing: -0.08rem;
+    }
+
+    .industry-product .industry-more {
+        font-size: 1rem;
     }
 
     .policy-layout .policy-card {
@@ -1082,6 +1178,35 @@ a:focus-visible .more-arrow,
         right: 0.5rem;
     }
 
+}
+
+@media (max-width: 25rem) {
+    .policy-wide h3 {
+        font-size: 1.375rem;
+    }
+
+    .industry-product h3 {
+        font-size: 1.25rem;
+    }
+
+    .feature-card {
+        aspect-ratio: 1 / 1.15;
+    }
+
+    .feature-layout .feature-wide {
+        aspect-ratio: 1 / 1.2;
+    }
+
+    .industry-focus .industry-label {
+        padding-inline: 0.75rem;
+        white-space: nowrap;
+    }
+
+    .feature-keywords span {
+        margin-right: 0.35rem;
+        padding: 0.35rem 0.8rem;
+        font-size: 0.6875rem;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -489,3 +489,13 @@
         gap: 1.5rem;
     }
 }
+
+@media (max-width: 25rem) {
+    .brand-description {
+        display: none;
+    }
+
+    .header-tools {
+        gap: 0.75rem;
+    }
+}
