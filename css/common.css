@@ -223,10 +223,33 @@
 }
 
 @media (max-width: 81.25rem) and (min-width: 56.3125rem) {
+    .header-inner {
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        column-gap: 1rem;
+    }
 
-    .brand-description,
+    .site-brand {
+        gap: 0.625rem;
+    }
+
+    .brand-description {
+        font-size: 0.8125rem;
+    }
+
     .brand-issue {
-        display: none;
+        font-size: 1.0625rem;
+    }
+
+    .main-navigation {
+        justify-self: center;
+    }
+
+    .main-menu {
+        width: clamp(18rem, calc(33vw - 0.65rem), 26rem);
+    }
+
+    .main-menu>li>a {
+        font-size: 1.0625rem;
     }
 }
 
